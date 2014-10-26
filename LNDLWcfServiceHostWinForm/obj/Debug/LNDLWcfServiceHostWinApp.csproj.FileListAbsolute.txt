@@ -1,0 +1,4 @@
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHostWinForm\bin\Debug\LNDLWcfServiceHostWinForm.exe
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHostWinForm\bin\Debug\LNDLWcfServiceHostWinForm.pdb
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHostWinForm\obj\Debug\LNDLWcfServiceHostWinForm.exe
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHostWinForm\obj\Debug\LNDLWcfServiceHostWinForm.pdb
