@@ -9,4 +9,3 @@ C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework 
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfService\bin\EntityFramework.SqlServer.xml
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfService\bin\zh-Hans\EntityFramework.resources.dll
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfService\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
-C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfService\obj\Debug\LNDLWcfService.csprojResolveAssemblyReference.cache

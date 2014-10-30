@@ -1,8 +1,8 @@
 ﻿@model LNDLWcfService.OrderEntity
-
 @{
     ViewBag.Title = "Edit";
 }
+
 
 <h2>Edit</h2>
 
@@ -21,24 +21,51 @@
             @Html.LabelFor(model => model.productType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.productType, new { htmlAttributes = new { @class = "form-control" } })*@
-
                 @Html.DropDownList("productType",String.Empty)
-
-
                 @Html.ValidationMessageFor(model => model.productType, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.productName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.productName, new { htmlAttributes = new { @class = "form-control" } })*@
-
                 @Html.DropDownList("productName", String.Empty)
                 @Html.ValidationMessageFor(model => model.productName, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*<div>
+                    <p>startDate: <input type="text" class="datepicker"></p>*@
 
+                    @Html.EditorFor(model => model.startDate) @* , new { htmlAttributes = new { @class = "datefield" } })*@
+                @* </div> *@                
+                @*@Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.expectDate) @*, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.expectDate) @*, new { htmlAttributes = new { @class = "datefield" } })*@
+                @*@Html.ValidationMessageFor(model => model.productName, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.clientPOFilePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.clientPOFilePath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.clientPOFilePath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.vendorPOFilePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.vendorPOFilePath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.vendorPOFilePath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*form-control*@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -51,6 +78,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

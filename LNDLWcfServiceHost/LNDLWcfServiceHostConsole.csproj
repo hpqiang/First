@@ -82,13 +82,13 @@
     <None Include="Service References\ServiceReference1\LNDLWcfService.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\LNDLWcfService\LNDLWcfService.csproj">
       <Project>{26a8f4e8-3cbc-4202-9bda-1d1f354549c3}</Project>
       <Name>LNDLWcfService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

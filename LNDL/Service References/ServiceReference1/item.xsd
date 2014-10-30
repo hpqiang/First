@@ -8,9 +8,15 @@
   <xs:element name="ArrayOfOrderEntity" nillable="true" type="tns:ArrayOfOrderEntity" />
   <xs:complexType name="OrderEntity">
     <xs:sequence>
+      <xs:element minOccurs="0" name="clientPOFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="clientPOFilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="expectDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="productName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="productType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="vendorPOFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vendorPOFilePath" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderEntity" nillable="true" type="tns:OrderEntity" />

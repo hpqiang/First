@@ -1,0 +1,15 @@
+﻿@*@model DateTime*@
+@*@model LNDLWcfService.OrderEntity*@
+
+Using Date Template
+@*@Html.TextBox("", String.Format("{0:d}", Model.ToShortDateString()),
+  new { @class = "datefield", @type = "date" })*@
+
+
+@model Nullable<DateTime>
+@{
+    DateTime dt = (DateTime)((Model == null) ? Convert.ToDateTime("1900-1-1") : Model);
+    @Html.TextBox("", String.Format("{0:d}", dt.Year < 1920 ? "Empty" : dt.ToShortDateString()), new { @class = "datefield", @type = "date" })
+}
+After using Date Template
+ 
