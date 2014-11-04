@@ -69,10 +69,14 @@
   <ItemGroup>
     <Content Include="LNDLWcfService.svc" />
     <Content Include="Service1.svc" />
+    <Content Include="WcfUploader.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employees.cs" />
+    <Compile Include="IWcfUploader.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="OrderEntity.cs" />
     <Compile Include="LNDLWcfService.svc.cs">
       <DependentUpon>LNDLWcfService.svc</DependentUpon>
@@ -120,6 +124,10 @@
     <Compile Include="tblStock.cs" />
     <Compile Include="tblUsers.cs" />
     <Compile Include="tblVendorProduct.cs" />
+    <Compile Include="WcfUploader.svc.cs">
+      <DependentUpon>WcfUploader.svc</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

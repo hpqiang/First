@@ -3,9 +3,44 @@
     ViewBag.Title = "Edit";
 }
 
-
 <h2>Edit</h2>
+<script type="text/javascript">
+function uploadBlobOrFile(blobOrFile)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/WcfUploader.svc/Upload', true);
+    alert("Coming..."+ blobOrFile.name + "and "+ blobOrFile.size + "and " + blobOrFile.type);
 
+    xhr.setRequestHeader('Content-length', blobOrFile.size);
+
+    xhr.onload = function (e) {
+        alert("11111111111");
+        progressBar.value = 0;
+        progressBar.textContent = progressBar.value;
+    };
+
+    // Listen to the upload progress.
+    var progressBar = document.querySelector('progress');
+    xhr.upload.onprogress = function (e) {
+        alert("222222222");
+
+        if (e.lengthComputable) {
+            progressBar.value = (e.loaded / e.total) * 100;
+            progressBar.textContent = progressBar.value; // Fallback.
+        }
+    };
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            alert(xhr.responseText);
+        }
+    };
+    alert("333333333333");
+
+    xhr.send(blobOrFile);
+    alert("444444444444");
+
+}
+</script>
 
 @using (Html.BeginForm())
 {
@@ -59,16 +94,42 @@
             </div>
         </div>
         <div class="form-group">
+            @Html.LabelFor(model => model.clientPOFileName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.clientPOFileName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.clientPOFileName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            <input id="filePicker" type="file" name="Package" accept="image/*" />
+            <br />
+            <progress min="0" max="100" value="0">0% complete</progress>
+            <br />
+            <button title="upload" name="Command" value="fileUpload" onclick="if (filePicker.files[0]) uploadBlobOrFile(filePicker.files[0])">
+                <span>Upload</span>
+            </button>
+            @*<input type="submit" name="Command" value="fileUpload" />*@
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.vendorPOFilePath, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.vendorPOFilePath, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.vendorPOFilePath, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.vendorPOFileName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.vendorPOFileName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.vendorPOFileName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @*form-control*@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" name="Command" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

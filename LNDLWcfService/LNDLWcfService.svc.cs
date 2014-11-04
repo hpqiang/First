@@ -37,10 +37,10 @@ namespace LNDLWcfService
                 order.productName = y.productName;
                 order.startDate = y.startDate;
                 order.expectDate = y.expectDate;
-                order.clientPOFilePath = (y.clientPOFile == null || y.clientPOFile == "TBD" || y.clientPOFile == "N/A")? "(TBD)" : y.clientPOFile.ToString().Substring(0, y.clientPOFile.ToString().LastIndexOf('/') - 1);
+                order.clientPOFilePath = (y.clientPOFile == null || y.clientPOFile == "TBD" || y.clientPOFile == "N/A")? "(TBD)" : y.clientPOFile.ToString().Substring(0, y.clientPOFile.ToString().LastIndexOf('/'));
                 order.clientPOFileName = (y.clientPOFile == null || y.clientPOFile == "TBD" || y.clientPOFile == "N/A") ? "(Empty)" : y.clientPOFile.ToString().Substring(y.clientPOFile.ToString().LastIndexOf('/') + 1, y.clientPOFile.ToString().Length - y.clientPOFile.ToString().LastIndexOf('/') - 1);
 
-                order.vendorPOFilePath = (y.vendorPOFile == null || y.vendorPOFile == "TBD" || y.vendorPOFile == "N/A")? "(TBD)" : y.vendorPOFile.ToString().Substring(0, y.vendorPOFile.ToString().LastIndexOf('/') - 1);
+                order.vendorPOFilePath = (y.vendorPOFile == null || y.vendorPOFile == "TBD" || y.vendorPOFile == "N/A")? "(TBD)" : y.vendorPOFile.ToString().Substring(0, y.vendorPOFile.ToString().LastIndexOf('/'));
                 order.vendorPOFileName = (y.vendorPOFile == null || y.vendorPOFile == "TBD" || y.vendorPOFile == "N/A") ? "(Empty)" : y.vendorPOFile.ToString().Substring(y.vendorPOFile.ToString().LastIndexOf('/') + 1, y.vendorPOFile.ToString().Length - y.vendorPOFile.ToString().LastIndexOf('/') - 1);
                 l.Add(order);
             }
@@ -115,12 +115,19 @@ namespace LNDLWcfService
                 tblorder.productName = o.productName;
                 tblorder.startDate = o.startDate;
                 tblorder.expectDate = o.expectDate;
-                tblorder.clientPOFile = o.clientPOFilePath + o.clientPOFileName;
-                tblorder.vendorPOFile = o.vendorPOFilePath + o.vendorPOFileName;
+                tblorder.clientPOFile = o.clientPOFilePath + "/" + o.clientPOFileName;
+                tblorder.vendorPOFile = o.vendorPOFilePath + "/" + o.vendorPOFileName;
+                //Console.WriteLine(o.clientPOFilePath);
+                //Console.WriteLine(o.clientPOFileName);
+                //Console.WriteLine(o.vendorPOFilePath);
+                //Console.WriteLine(o.vendorPOFileName);
                 db.Entry(tblorder).State = EntityState.Modified;
                 db.SaveChanges();
             //}
             return;
         }
     }
+
+   
+
 }

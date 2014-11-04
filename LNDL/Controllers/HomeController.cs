@@ -7,6 +7,7 @@ using LNDL.Models;
 //using LNDL.ServiceReference1;
 using LNDLWcfService;
 using System.Net;
+using System.IO;
 
 namespace LNDL.Controllers
 {
@@ -52,23 +53,43 @@ namespace LNDL.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(OrderEntity order)
+        public ActionResult Edit(OrderEntity order, string Command, FormCollection collection)
         {
-            try
+            //Response.Write("Command" + Command);
+            if (Command == "fileUpload")
             {
-                if (ModelState.IsValid)
-                {
-                    client.saveOrder(order);
-                    return RedirectToAction("Order");
-                }
-            }
-            catch
-            {
-                ModelState.AddModelError("","Unable to save changes");
-            }
+                //ServiceReference2.WCFUploaderClient uploadClient = new ServiceReference2.WCFUploaderClient();
+                //uploadClient.Upload(new FileStream(collection["Package"], FileMode.Create));
 
-            populateProductTypeDDL(order.productType);
-            return View(order);
+                orders = client.getOrderList().ToList();
+                var o = orders.Find(x => x.id == order.id);
+
+                populateProductTypeDDL(o.productType);
+                populateProductNameDDL(o.productName);
+                return View(order);
+
+
+                //return Content("Coming heer..." + order.clientPOFileName + collection["Package"]);
+            }
+            else
+            {
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        client.saveOrder(order);
+                        return RedirectToAction("Order");
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
+
+                populateProductTypeDDL(order.productType);
+                populateProductNameDDL(order.productName);
+                return View(order);
+            }
         }
 
         private void populateProductTypeDDL(object selectedProductType = null)

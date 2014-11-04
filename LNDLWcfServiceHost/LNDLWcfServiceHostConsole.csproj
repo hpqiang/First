@@ -72,6 +72,7 @@
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\item.disco" />
+    <None Include="Properties\DataSources\LNDLWcfService.UploadedFile.datasource" />
     <None Include="Properties\DataSources\LNDLWcfService.tblOrder.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\LNDLWcfService.OrderEntity.datasource" />
