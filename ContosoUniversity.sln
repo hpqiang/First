@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNDLWcfServiceHostConsole",
 		{26A8F4E8-3CBC-4202-9BDA-1D1F354549C3} = {26A8F4E8-3CBC-4202-9BDA-1D1F354549C3}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{C80F2F6A-D2A1-4C62-845D-4DCDF09AF702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQNonSecurityService", "MSMQNonSecurityService\MSMQNonSecurityService.csproj", "{29681EE2-A78B-4811-A7E5-1500153C5C12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C80F2F6A-D2A1-4C62-845D-4DCDF09AF702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80F2F6A-D2A1-4C62-845D-4DCDF09AF702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80F2F6A-D2A1-4C62-845D-4DCDF09AF702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80F2F6A-D2A1-4C62-845D-4DCDF09AF702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
