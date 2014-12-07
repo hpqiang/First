@@ -74,3 +74,11 @@ C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework 
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\obj\Debug\LNDL.pdb
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\LNDLWcfService.dll
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\LNDLWcfService.pdb
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\WcfProductService.dll
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\WcfProductService.pdb
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\MSMQNonSecurityService.dll
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\MSMQNonSecurityService.pdb
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\SelfHostMSMQtoWCFforPO.exe
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\SelfHostMSMQtoWCFforPO.pdb
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\Hywin.Common.dll
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDL\bin\Hywin.Common.pdb

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "NewOrder";
+}
+
+<h2>NewOrder</h2>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm("NewOrder", "Customer", FormMethod.Post))
+{
+
+    @Html.TextBox("text")
+
+    <input type="submit" value="Update" />
+}
+
+<h3>@ViewBag.po</h3>

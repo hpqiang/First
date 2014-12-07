@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProductModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblBed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="size" Type="nvarchar" MaxLength="20" />
+          <Property Name="generalNote" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblCurtain">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="color" Type="nvarchar" MaxLength="30" />
+          <Property Name="width" Type="int" />
+          <Property Name="length" Type="int" />
+          <Property Name="unit" Type="nvarchar" MaxLength="10" />
+          <Property Name="FR" Type="bit" />
+          <Property Name="blackout" Type="bit" />
+          <Property Name="grommet" Type="bit" />
+          <Property Name="lining" Type="bit" />
+          <Property Name="pattern" Type="nvarchar" MaxLength="30" />
+          <Property Name="piecePerBag" Type="int" />
+          <Property Name="bagPerBox" Type="int" />
+          <Property Name="imageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="generalNote" Type="nvarchar(max)" />
+          <Property Name="unitPriceIn" Type="smallmoney" />
+          <Property Name="unitPriceSale1" Type="smallmoney" />
+          <Property Name="unitPriceSale2" Type="smallmoney" />
+          <Property Name="itemCreateDate" Type="date" />
+          <Property Name="itemModifyDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tblFabric">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GSM" Type="nvarchar" MaxLength="10" />
+          <Property Name="color" Type="nvarchar" MaxLength="20" />
+          <Property Name="width" Type="int" />
+          <Property Name="widthUnit" Type="nvarchar" MaxLength="10" />
+          <Property Name="lengthPerRoll" Type="int" />
+          <Property Name="unit" Type="nvarchar" MaxLength="10" />
+          <Property Name="FR" Type="bit" />
+          <Property Name="pattern" Type="nvarchar" MaxLength="50" />
+          <Property Name="imageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="generalNote" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="productSubType" Type="nvarchar" MaxLength="50" />
+          <Property Name="productName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="spGetProductCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCategory" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ProductModelStoreContainer">
+          <EntitySet Name="tblBed" EntityType="Self.tblBed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCurtain" EntityType="Self.tblCurtain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFabric" EntityType="Self.tblFabric" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCurtain">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="width" Type="Int32" />
+          <Property Name="length" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FR" Type="Boolean" />
+          <Property Name="blackout" Type="Boolean" />
+          <Property Name="grommet" Type="Boolean" />
+          <Property Name="lining" Type="Boolean" />
+          <Property Name="pattern" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="piecePerBag" Type="Int32" />
+          <Property Name="bagPerBox" Type="Int32" />
+          <Property Name="imageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="generalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="unitPriceIn" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="unitPriceSale1" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="unitPriceSale2" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="itemCreateDate" Type="DateTime" Precision="0" />
+          <Property Name="itemModifyDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productSubType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ProductEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCurtain" EntityType="Self.tblCurtain" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" />
+          <FunctionImport Name="spGetProductCount">
+          <Parameter Name="idCategory" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tblBed" EntityType="ProductModel.tblBed" />
+          <EntitySet Name="tblFabric" EntityType="ProductModel.tblFabric" />
+        </EntityContainer>
+        <EntityType Name="tblBed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="generalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblFabric">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GSM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="width" Type="Int32" />
+          <Property Name="widthUnit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="lengthPerRoll" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FR" Type="Boolean" />
+          <Property Name="pattern" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="generalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductModelStoreContainer" CdmEntityContainer="ProductEntities">
+          <EntitySetMapping Name="tblCurtain">
+            <EntityTypeMapping TypeName="ProductModel.tblCurtain">
+              <MappingFragment StoreEntitySet="tblCurtain">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="FR" ColumnName="FR" />
+                <ScalarProperty Name="blackout" ColumnName="blackout" />
+                <ScalarProperty Name="grommet" ColumnName="grommet" />
+                <ScalarProperty Name="lining" ColumnName="lining" />
+                <ScalarProperty Name="pattern" ColumnName="pattern" />
+                <ScalarProperty Name="piecePerBag" ColumnName="piecePerBag" />
+                <ScalarProperty Name="bagPerBox" ColumnName="bagPerBox" />
+                <ScalarProperty Name="imageName" ColumnName="imageName" />
+                <ScalarProperty Name="generalNote" ColumnName="generalNote" />
+                <ScalarProperty Name="unitPriceIn" ColumnName="unitPriceIn" />
+                <ScalarProperty Name="unitPriceSale1" ColumnName="unitPriceSale1" />
+                <ScalarProperty Name="unitPriceSale2" ColumnName="unitPriceSale2" />
+                <ScalarProperty Name="itemCreateDate" ColumnName="itemCreateDate" />
+                <ScalarProperty Name="itemModifyDate" ColumnName="itemModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProduct">
+            <EntityTypeMapping TypeName="ProductModel.tblProduct">
+              <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productType" ColumnName="productType" />
+                <ScalarProperty Name="productSubType" ColumnName="productSubType" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spGetProductCount" FunctionName="ProductModel.Store.spGetProductCount" />
+          <EntitySetMapping Name="tblBed">
+            <EntityTypeMapping TypeName="ProductModel.tblBed">
+              <MappingFragment StoreEntitySet="tblBed">
+                <ScalarProperty Name="generalNote" ColumnName="generalNote" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFabric">
+            <EntityTypeMapping TypeName="ProductModel.tblFabric">
+              <MappingFragment StoreEntitySet="tblFabric">
+                <ScalarProperty Name="generalNote" ColumnName="generalNote" />
+                <ScalarProperty Name="imageName" ColumnName="imageName" />
+                <ScalarProperty Name="pattern" ColumnName="pattern" />
+                <ScalarProperty Name="FR" ColumnName="FR" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="lengthPerRoll" ColumnName="lengthPerRoll" />
+                <ScalarProperty Name="widthUnit" ColumnName="widthUnit" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="GSM" ColumnName="GSM" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -8,13 +8,17 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using LNDL.EFDAL;
 using LNDL.Models;
+using System.Web.Security;
 
 namespace LNDL.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private SampleEntities db = new SampleEntities();
+
         private ApplicationUserManager _userManager;
 
         public AccountController()
@@ -39,7 +43,7 @@ namespace LNDL.Controllers
             }
         }
 
-        //
+        
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -47,6 +51,19 @@ namespace LNDL.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+
+        [AllowAnonymous]
+        public ActionResult LoginMyUser()
+        {
+            //var users = from u in db.tblUsers
+            //            select u;
+
+            //return View(users);
+
+            return View();
+        }
+
 
         private ApplicationSignInManager _signInManager;
 
@@ -59,35 +76,72 @@ namespace LNDL.Controllers
             private set { _signInManager = value; }
         }
 
-        //
-        // POST: /Account/Login
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult LoginMyUser(tblUsers model)//,string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
-            }
+                //var users = from u in db.tblUsers
+                //            select u;
 
-            // 这不会计入到为执行帐户锁定而统计的登录失败次数中
-            // 若要在多次输入错误密码的情况下触发帐户锁定，请更改为 shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "无效的登录尝试。");
-                    return View(model);
+                string name = model.name;
+                string password = model.password;
+
+                bool userValid = db.tblUsers.Any(user=>user.name == name && user.password == password);
+
+                if(userValid)
+                {
+                    FormsAuthentication.SetAuthCookie(name, false);
+                    //if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                    //&& !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    //{
+                    //    return Redirect(returnUrl);
+                    //}
+                    //else
+                    //
+                    {
+                        ViewBag.Message = "Redirecting...";
+                        //returnUrl = string.Empty;
+                        return RedirectToAction("About", "Home");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The username or password are not correct");
+                }
+
             }
+            return View(model); //Something is wrong
         }
+        
+        //POST: /Account/Login
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+
+        //    // 这不会计入到为执行帐户锁定而统计的登录失败次数中
+        //    // 若要在多次输入错误密码的情况下触发帐户锁定，请更改为 shouldLockout: true
+        //    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+        //    switch (result)
+        //    {
+        //        case SignInStatus.Success:
+        //            return RedirectToLocal(returnUrl);
+        //        case SignInStatus.LockedOut:
+        //            return View("Lockout");
+        //        case SignInStatus.RequiresVerification:
+        //            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+        //        case SignInStatus.Failure:
+        //        default:
+        //            ModelState.AddModelError("", "无效的登录尝试。");
+        //            return View(model);
+        //    }
+        //}
 
         //
         // GET: /Account/VerifyCode

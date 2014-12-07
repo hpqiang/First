@@ -1,4 +1,40 @@
-﻿@using LNDL.Models
+﻿@model LNDL.EFDAL.tblUsers
+@{
+    ViewBag.Title = "LoginMyUser";
+}
+
+<h2>LoginMyUser</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Enter User Credential</legend>
+
+        <div class="editor-lable">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-lable">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+
+
+@*@using LNDL.Models
 @model LoginViewModel
 @{
     ViewBag.Title = "登录";
@@ -48,7 +84,8 @@
                     <p>
                         @Html.ActionLink("忘记了密码?", "ForgotPassword")
                     </p>*@
-            }
+
+            @*}
         </section>
     </div>
     <div class="col-md-4">
@@ -56,8 +93,8 @@
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
-</div>
+</div>*@
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

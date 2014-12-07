@@ -42,7 +42,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +56,16 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MSMQServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,24 +83,61 @@
     </None>
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\item.disco" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService.disco" />
+    <None Include="Service References\MSMQServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MSMQServiceReference\configuration.svcinfo" />
+    <None Include="Service References\MSMQServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\MSMQServiceReference\MSMQService.disco" />
+    <None Include="Properties\DataSources\WcfProductService.EFDAL.tblBed.datasource" />
+    <None Include="Properties\DataSources\WcfProductService.EFDAL.tblCurtain.datasource" />
+    <None Include="Properties\DataSources\WcfProductService.EFDAL.tblFabric.datasource" />
+    <None Include="Service References\MSMQServiceReference\MSMQService.wsdl" />
+    <None Include="Service References\MSMQServiceReference\MSMQService.xsd" />
+    <None Include="Service References\MSMQServiceReference\MSMQService1.xsd" />
+    <None Include="Service References\ProductServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ProductServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ProductServiceReference\WcfProductService.disco" />
+    <None Include="Properties\DataSources\WcfProductService.EFDAL.tblProduct.datasource" />
+    <None Include="Properties\DataSources\WcfProductService.EFDAL.ProductEntities.datasource" />
+    <None Include="Service References\ProductServiceReference\ProductService.wsdl" />
+    <None Include="Service References\ProductServiceReference\WcfProductService.xsd" />
+    <None Include="Service References\ProductServiceReference\WcfProductService1.xsd" />
+    <None Include="Service References\ProductServiceReference\WcfProductService2.xsd" />
     <None Include="Properties\DataSources\LNDLWcfService.UploadedFile.datasource" />
     <None Include="Properties\DataSources\LNDLWcfService.tblOrder.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\LNDLWcfService.OrderEntity.datasource" />
     <None Include="Properties\DataSources\LNDLWcfService.Entities.OrderEntity.datasource" />
-    <None Include="Service References\ServiceReference1\item.xsd" />
-    <None Include="Service References\ServiceReference1\item1.xsd" />
-    <None Include="Service References\ServiceReference1\item2.xsd" />
     <None Include="Service References\ServiceReference1\LNDLWcfService.wsdl" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService1.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService2.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService3.xsd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LNDLWcfService\LNDLWcfService.csproj">
       <Project>{26a8f4e8-3cbc-4202-9bda-1d1f354549c3}</Project>
       <Name>LNDLWcfService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MSMQNonSecurityService\MSMQNonSecurityService.csproj">
+      <Project>{29681ee2-a78b-4811-a7e5-1500153c5c12}</Project>
+      <Name>MSMQNonSecurityService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfProductService\WcfProductService.csproj">
+      <Project>{0446ed32-e36e-491e-a3a6-92da912e36a6}</Project>
+      <Name>WcfProductService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MSMQServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ProductServiceReference\" />
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

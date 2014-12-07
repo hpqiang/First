@@ -7,43 +7,47 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace LNDLWcfService
-{
-    [DataContract]
-    public class UploadedFile
-    {
-        [DataMember]
-        public string FilePath { get; set; }
+//namespace LNDLWcfService
+//{
+//    [ServiceContract]
+//    public interface IWCFUploader
+//    {
+//        [OperationContract]
+//        //[OperationContract(Name = "Upload")]
+//        //[DataContractFormat]
+//        //[WebInvoke(Method = "POST",
+//        //            UriTemplate = "Upload/",
+//        //            BodyStyle = WebMessageBodyStyle.Bare,
+//        //            ResponseFormat = WebMessageFormat.Json)]
+//        UploadedFile Upload(Stream Uploading);
 
-        [DataMember]
-        public int FileLength { get; set; }
+//        [OperationContract]
+//        //[OperationContract(Name = "Transform")]
+//        //[DataContractFormat]
+//        //[WebInvoke(Method = "POST",
+//        //            UriTemplate = "Transform",
+//        //    //BodyStyle = WebMessageBodyStyle.Bare,
+//        //            BodyStyle = WebMessageBodyStyle.Wrapped,
+//        //            ResponseFormat = WebMessageFormat.Json)]
+//        UploadedFile Transform(UploadedFile Uploading, string FileName);
+//    }
+    
+//    [DataContract]
+//    public class UploadedFile
+//    {
+//        [DataMember]
+//        public string FilePath { get; set; }
 
-        [DataMember]
-        public string FileName { get; set; }
+//        [DataMember]
+//        public int FileLength { get; set; }
 
-        //Other information. On upload only path and size are obvious.
-        //...
-    }
+//        [DataMember]
+//        public string FileName { get; set; }
 
-    [ServiceContract(Name = "IWCFUploader")]
-    public interface IWCFUploader
-    {
-        [OperationContract(Name = "Upload")]
-        [DataContractFormat]
-        [WebInvoke(Method = "POST",
-                    UriTemplate = "Upload/",
-                    BodyStyle = WebMessageBodyStyle.Bare,
-                    ResponseFormat = WebMessageFormat.Json)]
-        UploadedFile Upload(Stream Uploading);
+//        //Other information. On upload only path and size are obvious.
+//        //...
+//    }
 
-        [OperationContract(Name = "Transform")]
-        [DataContractFormat]
-        [WebInvoke(Method = "POST",
-                    UriTemplate = "Transform",
-            //BodyStyle = WebMessageBodyStyle.Bare,
-                    BodyStyle = WebMessageBodyStyle.Wrapped,
-                    ResponseFormat = WebMessageFormat.Json)]
-        UploadedFile Transform(UploadedFile Uploading, string FileName);
-    } 
+//    //[ServiceContract(Name = "IWCFUploader")]
 
-}
+//}

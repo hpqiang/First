@@ -2,6 +2,22 @@
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@*<h3>@ViewBag.Message</h3>*@
 
-<p>Use this area to provide additional information.</p>
+@*<p>Use this area to provide additional information.</p>*@
+
+@*<input type="text" id="txtBox" />
+<input type="submit" id="submit" value="send" />*@
+
+
+@*@Html.TextBox("textBox")*@
+@*<a id="img" href="@Url.Action("About", "Home", new { text=Request.QueryString["textBox"]})" ></a>*@
+<br />
+
+@using (Html.BeginForm("About", "Home", FormMethod.Post))
+{
+
+    @Html.TextBox("text")
+
+    <input type="submit" value="Update" />
+}

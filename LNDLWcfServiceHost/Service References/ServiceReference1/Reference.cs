@@ -85,4 +85,65 @@ namespace LNDLWcfServiceHost.ServiceReference1 {
             return base.Channel.saveOrderAsync(o);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IWCFUploader")]
+    public interface IWCFUploader {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFUploader/Upload", ReplyAction="http://tempuri.org/IWCFUploader/UploadResponse")]
+        LNDLWcfService.UploadedFile Upload(System.IO.Stream Uploading);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFUploader/Upload", ReplyAction="http://tempuri.org/IWCFUploader/UploadResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.UploadedFile> UploadAsync(System.IO.Stream Uploading);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFUploader/Transform", ReplyAction="http://tempuri.org/IWCFUploader/TransformResponse")]
+        LNDLWcfService.UploadedFile Transform(LNDLWcfService.UploadedFile Uploading, string FileName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFUploader/Transform", ReplyAction="http://tempuri.org/IWCFUploader/TransformResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.UploadedFile> TransformAsync(LNDLWcfService.UploadedFile Uploading, string FileName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IWCFUploaderChannel : LNDLWcfServiceHost.ServiceReference1.IWCFUploader, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class WCFUploaderClient : System.ServiceModel.ClientBase<LNDLWcfServiceHost.ServiceReference1.IWCFUploader>, LNDLWcfServiceHost.ServiceReference1.IWCFUploader {
+        
+        public WCFUploaderClient() {
+        }
+        
+        public WCFUploaderClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public WCFUploaderClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public WCFUploaderClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public WCFUploaderClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public LNDLWcfService.UploadedFile Upload(System.IO.Stream Uploading) {
+            return base.Channel.Upload(Uploading);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.UploadedFile> UploadAsync(System.IO.Stream Uploading) {
+            return base.Channel.UploadAsync(Uploading);
+        }
+        
+        public LNDLWcfService.UploadedFile Transform(LNDLWcfService.UploadedFile Uploading, string FileName) {
+            return base.Channel.Transform(Uploading, FileName);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.UploadedFile> TransformAsync(LNDLWcfService.UploadedFile Uploading, string FileName) {
+            return base.Channel.TransformAsync(Uploading, FileName);
+        }
+    }
 }

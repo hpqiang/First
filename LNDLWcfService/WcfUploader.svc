@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="LNDLWcfService.WcfUploader" CodeBehind="WcfUploader.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="LNDLWcfService.WCFUploader" CodeBehind="WCFUploader.svc.cs" %>

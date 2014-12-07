@@ -44,8 +44,11 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -161,9 +164,36 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Models\AllProductModel.cs" />
+    <Compile Include="Areas\Customer\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
+    <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
+    <Compile Include="Areas\Supplier\SupplierAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="EFDAL\ModelUsers.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUsers.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFDAL\ModelUsers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUsers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFDAL\ModelUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EFDAL\Sample.cs" />
+    <Compile Include="EFDAL\tblUsers.cs">
+      <DependentUpon>ModelUsers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,6 +202,16 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MSMQServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,8 +229,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Clients\Views\_ViewStart.cshtml" />
-    <Content Include="Admin\_ViewStart.cshtml" />
     <Content Include="Properties\DataSources\LNDLWcfService.OrderEntity.datasource" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -198,6 +236,61 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Properties\DataSources\LNDLWcfService.UploadedFile.datasource" />
+    <EntityDeploy Include="EFDAL\ModelUsers.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelUsers.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EFDAL\ModelUsers.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
+      <LastGenOutput>ModelUsers.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EFDAL\ModelUsers.edmx.diagram">
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
+    </Content>
+    <Content Include="EFDAL\ModelUsers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
+      <LastGenOutput>ModelUsers.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Supplier\Views\web.config" />
+    <Content Include="Areas\Customer\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Supplier\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Customer\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Customer\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Supplier\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Properties\DataSources\WcfProductService.EFDAL.ProductEntities.datasource" />
+    <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblProduct.datasource" />
+    <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblBed.datasource" />
+    <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblCurtain.datasource" />
+    <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblFabric.datasource" />
+    <Content Include="Areas\Admin\Views\Admin\Users.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Products.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Orders.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Manufacture.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Inventory.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Sales.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Contact.cshtml" />
+    <Content Include="Areas\Customer\Views\Customer\NewOrder.cshtml" />
+    <Content Include="Areas\Customer\Views\Customer\OrderHistory.cshtml" />
+    <Content Include="Areas\Customer\Views\Customer\Invoice.cshtml" />
+    <Content Include="Areas\Customer\Views\Customer\Payment.cshtml" />
+    <Content Include="Areas\Customer\Views\Customer\Contact.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Product.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Manufacture.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Shipping.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Invoice.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Payment.cshtml" />
+    <Content Include="Areas\Supplier\Views\Supplier\Contact.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\bootstrap.validate.js" />
@@ -213,7 +306,28 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Service References\ServiceReference1\item.disco" />
+    <None Include="Service References\MSMQServiceReference\MSMQService.wsdl" />
+    <None Include="Service References\MSMQServiceReference\MSMQService.xsd" />
+    <None Include="Service References\MSMQServiceReference\MSMQService1.xsd" />
+    <None Include="Service References\ProductServiceReference\ProductService.wsdl" />
+    <None Include="Service References\ProductServiceReference\WcfProductService.xsd" />
+    <None Include="Service References\ProductServiceReference\WcfProductService1.xsd" />
+    <None Include="Service References\ProductServiceReference\WcfProductService2.xsd" />
+    <None Include="Service References\ProductServiceReference\WcfProductService.disco" />
+    <None Include="Service References\ProductServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ProductServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ProductServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MSMQServiceReference\MSMQService.disco" />
+    <None Include="Service References\MSMQServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\MSMQServiceReference\configuration.svcinfo" />
+    <None Include="Service References\MSMQServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\LNDLWcfService.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\Reference.svcmap">
@@ -257,27 +371,27 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Vendors\Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Order.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
-    <None Include="Service References\ServiceReference1\item.xsd" />
-    <None Include="Service References\ServiceReference1\item1.xsd" />
-    <None Include="Service References\ServiceReference1\item2.xsd" />
+    <Content Include="Views\Account\LoginMyUser.cshtml" />
+    <Content Include="Views\Home\LoginMyUser.cshtml" />
+    <Content Include="Views\Product\Overview.cshtml" />
+    <Content Include="Views\Product\Curtain.cshtml" />
+    <Content Include="Views\Product\Fabric.cshtml" />
+    <Content Include="Views\Product\Bed.cshtml" />
     <None Include="Service References\ServiceReference1\LNDLWcfService.wsdl" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService1.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService2.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService3.xsd" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Controllers\" />
-    <Folder Include="Admin\Models\" />
-    <Folder Include="Admin\Views\Shared\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Clients\Controllers\" />
-    <Folder Include="Clients\Models\" />
-    <Folder Include="Clients\Views\Shared\" />
-    <Folder Include="Vendors\Controllers\" />
-    <Folder Include="Vendors\Models\" />
-    <Folder Include="Vendors\Views\Shared\" />
+    <Folder Include="Areas\Customer\Models\" />
+    <Folder Include="Areas\Supplier\Models\" />
+    <Folder Include="Hywin.Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -287,13 +401,34 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Hywin.Common\Hywin.Common.csproj">
+      <Project>{c6cc4d17-bda8-465c-9a79-679432bb8345}</Project>
+      <Name>Hywin.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LNDLWcfService\LNDLWcfService.csproj">
       <Project>{26a8f4e8-3cbc-4202-9bda-1d1f354549c3}</Project>
       <Name>LNDLWcfService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MSMQNonSecurityService\MSMQNonSecurityService.csproj">
+      <Project>{29681ee2-a78b-4811-a7e5-1500153c5c12}</Project>
+      <Name>MSMQNonSecurityService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SelfHostMSMQtoWCFforPO\SelfHostMSMQtoWCFforPO.csproj">
+      <Project>{53808a6e-a6d9-4d7d-9655-a0a1f94e3e9c}</Project>
+      <Name>SelfHostMSMQtoWCFforPO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfProductService\WcfProductService.csproj">
+      <Project>{0446ed32-e36e-491e-a3a6-92da912e36a6}</Project>
+      <Name>WcfProductService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MSMQServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ProductServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

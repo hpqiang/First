@@ -1,0 +1,141 @@
+﻿@model IEnumerable<WcfProductService.EFDAL.tblCurtain>
+
+@{
+    ViewBag.Title = "Curtain";
+}
+
+<h2>Curtain</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.width)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.blackout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grommet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pattern)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.piecePerBag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bagPerBox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.generalNote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unitPriceIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unitPriceSale1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unitPriceSale2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itemCreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itemModifyDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.width)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.blackout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grommet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pattern)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.piecePerBag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bagPerBox)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.generalNote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unitPriceIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unitPriceSale1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unitPriceSale2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemCreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemModifyDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

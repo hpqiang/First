@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/WcfProductService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/WcfProductService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/WcfProductService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfProductService.EFDAL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductService_GetProductEntities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductEntities" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetProductEntities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetCurtainEntities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurtainEntities" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetCurtainEntities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurtainEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetFabricEntities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFabricEntities" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetFabricEntities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFabricEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetBedEntities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedEntities" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetBedEntities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProductService">
+    <wsdl:operation name="GetProductEntities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetProductEntities" message="tns:IProductService_GetProductEntities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetProductEntitiesResponse" message="tns:IProductService_GetProductEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurtainEntities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetCurtainEntities" message="tns:IProductService_GetCurtainEntities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetCurtainEntitiesResponse" message="tns:IProductService_GetCurtainEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFabricEntities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetFabricEntities" message="tns:IProductService_GetFabricEntities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetFabricEntitiesResponse" message="tns:IProductService_GetFabricEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBedEntities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetBedEntities" message="tns:IProductService_GetBedEntities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetBedEntitiesResponse" message="tns:IProductService_GetBedEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetMessage" message="tns:IProductService_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetMessageResponse" message="tns:IProductService_GetMessage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProductService" type="tns:IProductService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductEntities">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetProductEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurtainEntities">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetCurtainEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFabricEntities">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetFabricEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBedEntities">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetBedEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductService">
+    <wsdl:port name="BasicHttpBinding_IProductService" binding="tns:BasicHttpBinding_IProductService">
+      <soap:address location="http://localhost:8080/WcfProductService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

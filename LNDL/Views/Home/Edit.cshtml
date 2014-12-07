@@ -14,7 +14,7 @@ function uploadBlobOrFile(blobOrFile)
     xhr.setRequestHeader('Content-length', blobOrFile.size);
 
     xhr.onload = function (e) {
-        alert("11111111111");
+        //alert("11111111111");
         progressBar.value = 0;
         progressBar.textContent = progressBar.value;
     };
@@ -22,7 +22,7 @@ function uploadBlobOrFile(blobOrFile)
     // Listen to the upload progress.
     var progressBar = document.querySelector('progress');
     xhr.upload.onprogress = function (e) {
-        alert("222222222");
+        //alert("222222222");
 
         if (e.lengthComputable) {
             progressBar.value = (e.loaded / e.total) * 100;
@@ -34,10 +34,10 @@ function uploadBlobOrFile(blobOrFile)
             alert(xhr.responseText);
         }
     };
-    alert("333333333333");
+    //alert("333333333333");
 
     xhr.send(blobOrFile);
-    alert("444444444444");
+    //alert("444444444444");
 
 }
 </script>
@@ -56,7 +56,10 @@ function uploadBlobOrFile(blobOrFile)
             @Html.LabelFor(model => model.productType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.productType, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.DropDownList("productType",String.Empty)
+                @*<div class="dropdown-menu">*@
+                    @Html.DropDownList("productType", "--select one--")
+                    @Html.DropDownListFor(model => model.productType, Model.productType, "-select one-", new {@class="dropdown-menu" })
+                @*</div>*@
                 @Html.ValidationMessageFor(model => model.productType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,7 +67,7 @@ function uploadBlobOrFile(blobOrFile)
             @Html.LabelFor(model => model.productName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.productName, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.DropDownList("productName", String.Empty)
+                @Html.DropDownList("productName", "--select one--")
                 @Html.ValidationMessageFor(model => model.productName, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -5,12 +5,14 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Data.Entity;
+using System.IO;
+using LNDLWcfService.CodeFirstDAL;
 
 namespace LNDLWcfService
 {
     // 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码、svc 和配置文件中的类名“HelloService”。
     // 注意: 为了启动 WCF 测试客户端以测试此服务，请在解决方案资源管理器中选择 HelloService.svc 或 HelloService.svc.cs，然后开始调试。
-    public class LNDLWcfService : ILNDLWcfService
+    public class LNDLWcfService : ILNDLWcfService,IWCFUploader
     {
         private Sample db = new Sample();
 
@@ -19,6 +21,15 @@ namespace LNDLWcfService
             return "Hello " + name;
         }
 
+        //public List<Product> GetProducts()
+        //{
+        //    return PersistSvr<Product>.GetAll().ToList();
+        //}
+
+        public List<OrderEntity> getOrderList1()
+        {
+            return getOrderList();
+        }
 
         //public List<OrderEntity> getOrderList()
         public List<OrderEntity> getOrderList()
@@ -126,8 +137,51 @@ namespace LNDLWcfService
             //}
             return;
         }
+
+        //public void SetDBInitializer()
+        //{
+        //    Console.WriteLine("Calling SetDBInitializer...");
+        //    //CompanyContext cc = new CompanyContext();
+        //    //Database.SetInitializer<CompanyContext>(new CompanyInitializer());
+
+        //    //cc.Database.Initialize(true);
+            
+        //}
+
+        public UploadedFile Upload(Stream Uploading)
+        {
+
+            Console.WriteLine("In Upload...");
+
+
+            UploadedFile upload = new UploadedFile
+            {
+                FilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())
+            };
+
+            //Console.WriteLine(upload.FilePath.ToString());
+            //int length = 0;
+            //using (FileStream writer = new FileStream(upload.FilePath, FileMode.Create))
+            //{
+            //    int readCount;
+            //    var buffer = new byte[8192];
+            //    while ((readCount = Uploading.Read(buffer, 0, buffer.Length)) != 0)
+            //    {
+            //        writer.Write(buffer, 0, readCount);
+            //        length += readCount;
+            //    }
+            //}
+
+            //upload.FileLength = length;
+
+            return upload;
+        }
+
+        public UploadedFile Transform(UploadedFile Uploading, string FileName)
+        {
+            Uploading.FileName = FileName;
+            return Uploading;
+        }
+    
     }
-
-   
-
 }

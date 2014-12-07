@@ -1,0 +1,15 @@
+﻿@*@using LNDL.EFDAL
+@using Microsoft.AspNet.Identity*@
+
+    @using (Html.BeginForm("LogOff", "Supplier", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello，" + LNDL.Areas.Supplier.Controllers.SupplierController.supplierName + "!", "Index", "Supplier") @*, routeValues: null, htmlAttributes: new { title = "Manage" })*@
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+    </ul>
+    }
+@*}  *@

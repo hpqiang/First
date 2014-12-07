@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNDL.Tests", "LNDL.Tests\LN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNDLWcfService", "LNDLWcfService\LNDLWcfService.csproj", "{26A8F4E8-3CBC-4202-9BDA-1D1F354549C3}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database1", "Database1\Database1.sqlproj", "{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNDLWcfServiceHostConsole", "LNDLWcfServiceHost\LNDLWcfServiceHostConsole.csproj", "{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{26A8F4E8-3CBC-4202-9BDA-1D1F354549C3} = {26A8F4E8-3CBC-4202-9BDA-1D1F354549C3}
@@ -24,6 +22,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{C80F2F6A-D2A1-4C62-845D-4DCDF09AF702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQNonSecurityService", "MSMQNonSecurityService\MSMQNonSecurityService.csproj", "{29681EE2-A78B-4811-A7E5-1500153C5C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfProductService", "WcfProductService\WcfProductService.csproj", "{0446ED32-E36E-491E-A3A6-92DA912E36A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceMSMQtoWCFforPO", "WcfServiceMSMQtoWCFforPO\WcfServiceMSMQtoWCFforPO.csproj", "{6D6859B1-C028-42A5-A56C-4242E585523D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostMSMQtoWCFforPO", "SelfHostMSMQtoWCFforPO\SelfHostMSMQtoWCFforPO.csproj", "{53808A6E-A6D9-4D7D-9655-A0A1F94E3E9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hywin.Common", "Hywin.Common\Hywin.Common.csproj", "{C6CC4D17-BDA8-465C-9A79-679432BB8345}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hywin.Northwind", "Hywin.Northwind", "{2B82AFA8-3FE0-41AD-BD88-A539F70AA42D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hywin.Northwind.Business.Interfaces", "Hywin.Northwind.Business.Interfaces\Hywin.Northwind.Business.Interfaces.csproj", "{56627891-D0D0-4446-8D9B-60488CED511D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,12 +57,6 @@ Global
 		{26A8F4E8-3CBC-4202-9BDA-1D1F354549C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26A8F4E8-3CBC-4202-9BDA-1D1F354549C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A8F4E8-3CBC-4202-9BDA-1D1F354549C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4201FF2-45B3-458A-BDFB-5AB22A40BF2A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03DA5C44-11EF-48D2-B2D7-B15FE19FCCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,8 +69,31 @@ Global
 		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29681EE2-A78B-4811-A7E5-1500153C5C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0446ED32-E36E-491E-A3A6-92DA912E36A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0446ED32-E36E-491E-A3A6-92DA912E36A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0446ED32-E36E-491E-A3A6-92DA912E36A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0446ED32-E36E-491E-A3A6-92DA912E36A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6859B1-C028-42A5-A56C-4242E585523D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6859B1-C028-42A5-A56C-4242E585523D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6859B1-C028-42A5-A56C-4242E585523D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6859B1-C028-42A5-A56C-4242E585523D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53808A6E-A6D9-4D7D-9655-A0A1F94E3E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53808A6E-A6D9-4D7D-9655-A0A1F94E3E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53808A6E-A6D9-4D7D-9655-A0A1F94E3E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53808A6E-A6D9-4D7D-9655-A0A1F94E3E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6CC4D17-BDA8-465C-9A79-679432BB8345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CC4D17-BDA8-465C-9A79-679432BB8345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CC4D17-BDA8-465C-9A79-679432BB8345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CC4D17-BDA8-465C-9A79-679432BB8345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56627891-D0D0-4446-8D9B-60488CED511D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56627891-D0D0-4446-8D9B-60488CED511D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56627891-D0D0-4446-8D9B-60488CED511D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56627891-D0D0-4446-8D9B-60488CED511D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56627891-D0D0-4446-8D9B-60488CED511D} = {2B82AFA8-3FE0-41AD-BD88-A539F70AA42D}
 	EndGlobalSection
 EndGlobal

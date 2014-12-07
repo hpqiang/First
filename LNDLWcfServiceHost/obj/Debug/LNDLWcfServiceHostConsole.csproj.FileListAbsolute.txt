@@ -12,3 +12,7 @@ C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework 
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\EntityFramework.SqlServer.dll
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\EntityFramework.SqlServer.xml
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\MSMQNonSecurityService.dll
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\MSMQNonSecurityService.pdb
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\WcfProductService.dll
+C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\WcfProductService.pdb

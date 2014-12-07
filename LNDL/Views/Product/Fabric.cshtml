@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WcfProductService.EFDAL.tblFabric>
+
+@{
+    ViewBag.Title = "Fabric";
+}
+
+<h2>Fabric</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.width)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.widthUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lengthPerRoll)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pattern)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.generalNote)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.width)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.widthUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lengthPerRoll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pattern)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.generalNote)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
