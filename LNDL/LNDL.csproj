@@ -41,6 +41,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -165,8 +171,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Admin\Models\AllProductModel.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderFromCustomerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderToSupplierController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\RoleViewModels.cs" />
     <Compile Include="Areas\Customer\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
@@ -200,7 +213,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\MSMQServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -220,15 +235,23 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Users.mdf" />
+    <Content Include="App_Data\Users_log.ldf">
+      <DependentUpon>Users.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="datepicker.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="jQueryToggle.html" />
     <Content Include="Properties\DataSources\LNDLWcfService.OrderEntity.datasource" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -273,12 +296,6 @@
     <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblBed.datasource" />
     <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblCurtain.datasource" />
     <Content Include="Properties\DataSources\WcfProductService.EFDAL.tblFabric.datasource" />
-    <Content Include="Areas\Admin\Views\Admin\Users.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Products.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Orders.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Manufacture.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Inventory.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Sales.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Contact.cshtml" />
     <Content Include="Areas\Customer\Views\Customer\NewOrder.cshtml" />
     <Content Include="Areas\Customer\Views\Customer\OrderHistory.cshtml" />
@@ -291,10 +308,89 @@
     <Content Include="Areas\Supplier\Views\Supplier\Invoice.cshtml" />
     <Content Include="Areas\Supplier\Views\Supplier\Payment.cshtml" />
     <Content Include="Areas\Supplier\Views\Supplier\Contact.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\NewOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderSummary.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderInSample.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Configuration.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Settings.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Users.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Products.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Manufacture.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Shipping.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Inventory.cshtml" />
+    <Content Include="Areas\Admin\Views\Sale\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Customers.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Suppliers.cshtml" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Company.datasource" />
+    <Content Include="Areas\Admin\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Details.cshtml" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Product.datasource" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.ProductDetail.datasource" />
+    <Content Include="Areas\Admin\Views\ProductDetail\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDetail\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDetail\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDetail\Edit.cshtml" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.OrderFromCustomer.datasource" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.OrderToOrder.datasource" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.OrderToSupplier.datasource" />
+    <Content Include="Areas\Admin\Views\OrderSummary\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderSummary\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderSummary\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderSummary\Edit.cshtml" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Inventory.datasource" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Shipping.datasource" />
+    <Content Include="Areas\Admin\Views\Inventory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Inventory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Inventory\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Inventory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Ship\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Ship\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Ship\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Ship\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderFromCustomer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderFromCustomer\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderFromCustomer\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderFromCustomer\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderFromCustomer\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderToSupplier\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderToSupplier\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderToSupplier\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderToSupplier\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderToSupplier\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Common.Category.datasource" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\boolean.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\ManageUserRoles.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\ManageUserRolesEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\ManageUserRoles_Ajax.cshtml" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Views\Shared\ChartBasic.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.validate.js" />
-    <Content Include="Scripts\DatePickerReady.js" />
+    <Content Include="Scripts\HywinJS.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -302,7 +398,59 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -324,13 +472,6 @@
     <None Include="Service References\MSMQServiceReference\configuration91.svcinfo" />
     <None Include="Service References\MSMQServiceReference\configuration.svcinfo" />
     <None Include="Service References\MSMQServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServiceReference1\LNDLWcfService.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -381,14 +522,19 @@
     <Content Include="Views\Product\Curtain.cshtml" />
     <Content Include="Views\Product\Fabric.cshtml" />
     <Content Include="Views\Product\Bed.cshtml" />
+    <Content Include="Views\Home\DoSomething.cshtml" />
     <None Include="Service References\ServiceReference1\LNDLWcfService.wsdl" />
     <None Include="Service References\ServiceReference1\LNDLWcfService.xsd" />
     <None Include="Service References\ServiceReference1\LNDLWcfService1.xsd" />
     <None Include="Service References\ServiceReference1\LNDLWcfService2.xsd" />
     <None Include="Service References\ServiceReference1\LNDLWcfService3.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService4.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService5.xsd" />
+    <None Include="Service References\ServiceReference1\LNDLWcfService6.xsd" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Orders\" />
     <Folder Include="Areas\Customer\Models\" />
     <Folder Include="Areas\Supplier\Models\" />
     <Folder Include="Hywin.Common\" />

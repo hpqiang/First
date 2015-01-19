@@ -1,0 +1,101 @@
+﻿
+@model PagedList.IPagedList<LNDLWcfService.CodeFirstEntities.ProductDetail>
+@using PagedList.Mvc
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Product Details";
+}
+<h2>Product Detail from ProductDetailController</h2>
+
+@using (Html.BeginForm("Index", "ProductDetail", FormMethod.Get, new { @class = "navbar-form", @role = "search" }))
+{
+    <div class="form-group  navbar-left">
+        <label class="label label-default">Find by Color: </label>
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Color Search" })
+
+        <button type="submit" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+        @*<button type="button" id="glance_only" onclick="hideFunction(this);" class="glyphicon glyphicon-hand-left" title="hide details"></button>
+            <button type="button" id="show_detail" onclick="showFunction(this);" class="glyphicon glyphicon-hand-down" title="show details"></button>*@
+    </div>
+    <div class="nav navbar-nav navbar-right">
+        <label class="label label-default">Item Per Page: </label>
+        @Html.DropDownList("pageSize", new SelectList(
+                          new List<Object>{
+                          new { value = 3 , text = "3"  },
+                          new { value = 5 , text = "5"  },
+                          new { value = 10 , text = "10"  },
+                          new { value = 15 , text = "15" },
+                          new { value = 20 , text = "20"}
+                          },
+                          "value",
+                          "text"
+                    ), htmlAttributes: new { @class = "form-control" })
+        <button type="submit" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        </button>
+    </div>
+}
+<p>
+    <br />
+    <br />
+</p>
+Parameters: ViewBag.NameSortParm=@ViewBag.NameSortParm, ViewBag.CurrentFilter=@ViewBag.CurrentFilter and ViewBag.CurrentSort=@ViewBag.CurrentSort
+    ViewBag.PageSize=@ViewBag.PageSize
+    <p>
+        @Html.ActionLink("New", "Create", null, new { @class = "btn btn-warning glyphicon glyphicon-plus-sign" })
+        <a href="@Url.Action("Create")" title="Create New">
+            <i class="glyphicon glyphicon-pencil"></i>
+            <span class="sr-only">New</span>
+        </a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Color", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Size)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @*<button type="button" id="glance_only1" onclick="selectFunction(this);" class="glyphicon glyphicon-arrow-left" title="hide details"></button>
+                        <button type="button" id="show_detail1" onclick="selectFunction(this);" class="glyphicon glyphicon-arrow-down" title="show details"></button>*@
+                    <a href="@Url.Action("Edit", new {id = item.Id })">
+                        <i class="glyphicon glyphicon-edit" title="Edit"></i>
+                        <span class="sr-only">Edit</span>
+                    </a>
+
+                    <a href="@Url.Action("Details", new { id = item.Id })" title="Details">
+                        <i class="glyphicon glyphicon-list"></i>
+                        <span class="sr-only">Details</span>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.Id })" title="Delete">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        <span class="sr-only">Delete</span>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

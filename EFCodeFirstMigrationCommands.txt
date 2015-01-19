@@ -1,0 +1,5 @@
+Enable-Migrations -ContextTypeName LNDLWcfService.CodeFirstDAL.HywinContext -Force
+
+Add-Migration LNDLWcfService.CodeFirstDAL.HywinContext
+
+update-database -Verbose

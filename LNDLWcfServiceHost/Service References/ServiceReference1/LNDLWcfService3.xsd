@@ -1,31 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LNDLWcfService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfOrderEntity">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCompany">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderEntity" nillable="true" type="tns:OrderEntity" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Company" nillable="true" type="tns:Company" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfOrderEntity" nillable="true" type="tns:ArrayOfOrderEntity" />
-  <xs:complexType name="OrderEntity">
+  <xs:element name="ArrayOfCompany" nillable="true" type="tns:ArrayOfCompany" />
+  <xs:complexType name="Company">
     <xs:sequence>
-      <xs:element minOccurs="0" name="clientPOFileName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="clientPOFilePath" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="expectDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="productName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="productType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="vendorPOFileName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="vendorPOFilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressId" type="xs:int" />
+      <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="BriefName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:element minOccurs="0" name="DateSince" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="companyId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="OrderEntity" nillable="true" type="tns:OrderEntity" />
-  <xs:complexType name="UploadedFile">
+  <xs:element name="Company" nillable="true" type="tns:Company" />
+  <xs:complexType name="Address">
     <xs:sequence>
-      <xs:element minOccurs="0" name="FileLength" type="xs:int" />
-      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="UploadedFile" nillable="true" type="tns:UploadedFile" />
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="tns:Company" />
+      <xs:element minOccurs="0" name="CompanyPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManagerId" type="xs:int" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="companyId" type="xs:int" />
+      <xs:element minOccurs="0" name="photo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
 </xs:schema>

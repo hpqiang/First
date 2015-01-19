@@ -15,29 +15,155 @@ namespace LNDL.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ILNDLWcfService")]
     public interface ILNDLWcfService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/GetMessage", ReplyAction="http://tempuri.org/ILNDLWcfService/GetMessageResponse")]
-        string GetMessage(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/getCompanyResponse")]
+        LNDLWcfService.CodeFirstEntities.Company[] getCompany(int start, int amount, string search, string sortOrder);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/GetMessage", ReplyAction="http://tempuri.org/ILNDLWcfService/GetMessageResponse")]
-        System.Threading.Tasks.Task<string> GetMessageAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/getCompanyResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Company[]> getCompanyAsync(int start, int amount, string search, string sortOrder);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderList", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderListResponse")]
-        LNDLWcfService.OrderEntity[] getOrderList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumberResponse")]
+        int getCompanyTotalNumber(string search);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderList", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderListResponse")]
-        System.Threading.Tasks.Task<LNDLWcfService.OrderEntity[]> getOrderListAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumberResponse")]
+        System.Threading.Tasks.Task<int> getCompanyTotalNumberAsync(string search);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/saveOrder", ReplyAction="http://tempuri.org/ILNDLWcfService/saveOrderResponse")]
-        void saveOrder(LNDLWcfService.OrderEntity o);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/insertCompanyResponse")]
+        void insertCompany(LNDLWcfService.CodeFirstEntities.Company company);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/saveOrder", ReplyAction="http://tempuri.org/ILNDLWcfService/saveOrderResponse")]
-        System.Threading.Tasks.Task saveOrderAsync(LNDLWcfService.OrderEntity o);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/insertCompanyResponse")]
+        System.Threading.Tasks.Task insertCompanyAsync(LNDLWcfService.CodeFirstEntities.Company company);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/SetDBInitializer", ReplyAction="http://tempuri.org/ILNDLWcfService/SetDBInitializerResponse")]
-        void SetDBInitializer();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/updateCompanyResponse")]
+        void updateCompany(LNDLWcfService.CodeFirstEntities.Company company);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/SetDBInitializer", ReplyAction="http://tempuri.org/ILNDLWcfService/SetDBInitializerResponse")]
-        System.Threading.Tasks.Task SetDBInitializerAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/updateCompanyResponse")]
+        System.Threading.Tasks.Task updateCompanyAsync(LNDLWcfService.CodeFirstEntities.Company company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteCompanyResponse")]
+        void deleteCompany(LNDLWcfService.CodeFirstEntities.Company company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteCompanyResponse")]
+        System.Threading.Tasks.Task deleteCompanyAsync(LNDLWcfService.CodeFirstEntities.Company company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/getCategoryResponse")]
+        LNDLWcfService.CodeFirstEntities.Common.Category[] getCategory(int start, int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/getCategoryResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Common.Category[]> getCategoryAsync(int start, int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumberResponse")]
+        int getCategoryTotalNumber();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumberResponse")]
+        System.Threading.Tasks.Task<int> getCategoryTotalNumberAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/insertCategoryResponse")]
+        void insertCategory(LNDLWcfService.CodeFirstEntities.Common.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/insertCategoryResponse")]
+        System.Threading.Tasks.Task insertCategoryAsync(LNDLWcfService.CodeFirstEntities.Common.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/updateCategoryResponse")]
+        void updateCategory(LNDLWcfService.CodeFirstEntities.Common.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/updateCategoryResponse")]
+        System.Threading.Tasks.Task updateCategoryAsync(LNDLWcfService.CodeFirstEntities.Common.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteCategoryResponse")]
+        void deleteCategory(LNDLWcfService.CodeFirstEntities.Common.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteCategory", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteCategoryResponse")]
+        System.Threading.Tasks.Task deleteCategoryAsync(LNDLWcfService.CodeFirstEntities.Common.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/getProductResponse")]
+        LNDLWcfService.CodeFirstEntities.Product[] getProduct(int start, int amount, string search, string sortOrder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/getProductResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Product[]> getProductAsync(int start, int amount, string search, string sortOrder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getProductTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getProductTotalNumberResponse")]
+        int getProductTotalNumber(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getProductTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getProductTotalNumberResponse")]
+        System.Threading.Tasks.Task<int> getProductTotalNumberAsync(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/insertProductResponse")]
+        void insertProduct(LNDLWcfService.CodeFirstEntities.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/insertProductResponse")]
+        System.Threading.Tasks.Task insertProductAsync(LNDLWcfService.CodeFirstEntities.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/updateProductResponse")]
+        void updateProduct(LNDLWcfService.CodeFirstEntities.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/updateProductResponse")]
+        System.Threading.Tasks.Task updateProductAsync(LNDLWcfService.CodeFirstEntities.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteProductResponse")]
+        void deleteProduct(LNDLWcfService.CodeFirstEntities.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteProduct", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteProductResponse")]
+        System.Threading.Tasks.Task deleteProductAsync(LNDLWcfService.CodeFirstEntities.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerResponse")]
+        LNDLWcfService.CodeFirstEntities.OrderFromCustomer[] getOrderFromCustomer(int start, int amount, string search, string sortOrder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.OrderFromCustomer[]> getOrderFromCustomerAsync(int start, int amount, string search, string sortOrder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumberResponse")]
+        int getOrderFromCustomerTotalNumber(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumberResponse")]
+        System.Threading.Tasks.Task<int> getOrderFromCustomerTotalNumberAsync(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomerResponse")]
+        void insertOrderFromCustomer(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomerResponse")]
+        System.Threading.Tasks.Task insertOrderFromCustomerAsync(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomerResponse")]
+        void updateOrderFromCustomer(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomerResponse")]
+        System.Threading.Tasks.Task updateOrderFromCustomerAsync(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomerResponse")]
+        void deleteOrderFromCustomer(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomer", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomerResponse")]
+        System.Threading.Tasks.Task deleteOrderFromCustomerAsync(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderToSupplierResponse")]
+        LNDLWcfService.CodeFirstEntities.OrderToSupplier[] getOrderToSupplier(int start, int amount, string search, string sortOrder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderToSupplierResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.OrderToSupplier[]> getOrderToSupplierAsync(int start, int amount, string search, string sortOrder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumberResponse")]
+        int getOrderToSupplierTotalNumber(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumber", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumberResponse")]
+        System.Threading.Tasks.Task<int> getOrderToSupplierTotalNumberAsync(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/insertOrderToSupplierResponse")]
+        void insertOrderToSupplier(LNDLWcfService.CodeFirstEntities.OrderToSupplier order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/insertOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/insertOrderToSupplierResponse")]
+        System.Threading.Tasks.Task insertOrderToSupplierAsync(LNDLWcfService.CodeFirstEntities.OrderToSupplier order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/updateOrderToSupplierResponse")]
+        void updateOrderToSupplier(LNDLWcfService.CodeFirstEntities.OrderToSupplier order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/updateOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/updateOrderToSupplierResponse")]
+        System.Threading.Tasks.Task updateOrderToSupplierAsync(LNDLWcfService.CodeFirstEntities.OrderToSupplier order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplierResponse")]
+        void deleteOrderToSupplier(LNDLWcfService.CodeFirstEntities.OrderToSupplier order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplier", ReplyAction="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplierResponse")]
+        System.Threading.Tasks.Task deleteOrderToSupplierAsync(LNDLWcfService.CodeFirstEntities.OrderToSupplier order);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,36 +193,204 @@ namespace LNDL.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetMessage(string name) {
-            return base.Channel.GetMessage(name);
+        public LNDLWcfService.CodeFirstEntities.Company[] getCompany(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getCompany(start, amount, search, sortOrder);
         }
         
-        public System.Threading.Tasks.Task<string> GetMessageAsync(string name) {
-            return base.Channel.GetMessageAsync(name);
+        public System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Company[]> getCompanyAsync(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getCompanyAsync(start, amount, search, sortOrder);
         }
         
-        public LNDLWcfService.OrderEntity[] getOrderList() {
-            return base.Channel.getOrderList();
+        public int getCompanyTotalNumber(string search) {
+            return base.Channel.getCompanyTotalNumber(search);
         }
         
-        public System.Threading.Tasks.Task<LNDLWcfService.OrderEntity[]> getOrderListAsync() {
-            return base.Channel.getOrderListAsync();
+        public System.Threading.Tasks.Task<int> getCompanyTotalNumberAsync(string search) {
+            return base.Channel.getCompanyTotalNumberAsync(search);
         }
         
-        public void saveOrder(LNDLWcfService.OrderEntity o) {
-            base.Channel.saveOrder(o);
+        public void insertCompany(LNDLWcfService.CodeFirstEntities.Company company) {
+            base.Channel.insertCompany(company);
         }
         
-        public System.Threading.Tasks.Task saveOrderAsync(LNDLWcfService.OrderEntity o) {
-            return base.Channel.saveOrderAsync(o);
+        public System.Threading.Tasks.Task insertCompanyAsync(LNDLWcfService.CodeFirstEntities.Company company) {
+            return base.Channel.insertCompanyAsync(company);
         }
         
-        public void SetDBInitializer() {
-            base.Channel.SetDBInitializer();
+        public void updateCompany(LNDLWcfService.CodeFirstEntities.Company company) {
+            base.Channel.updateCompany(company);
         }
         
-        public System.Threading.Tasks.Task SetDBInitializerAsync() {
-            return base.Channel.SetDBInitializerAsync();
+        public System.Threading.Tasks.Task updateCompanyAsync(LNDLWcfService.CodeFirstEntities.Company company) {
+            return base.Channel.updateCompanyAsync(company);
+        }
+        
+        public void deleteCompany(LNDLWcfService.CodeFirstEntities.Company company) {
+            base.Channel.deleteCompany(company);
+        }
+        
+        public System.Threading.Tasks.Task deleteCompanyAsync(LNDLWcfService.CodeFirstEntities.Company company) {
+            return base.Channel.deleteCompanyAsync(company);
+        }
+        
+        public LNDLWcfService.CodeFirstEntities.Common.Category[] getCategory(int start, int amount) {
+            return base.Channel.getCategory(start, amount);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Common.Category[]> getCategoryAsync(int start, int amount) {
+            return base.Channel.getCategoryAsync(start, amount);
+        }
+        
+        public int getCategoryTotalNumber() {
+            return base.Channel.getCategoryTotalNumber();
+        }
+        
+        public System.Threading.Tasks.Task<int> getCategoryTotalNumberAsync() {
+            return base.Channel.getCategoryTotalNumberAsync();
+        }
+        
+        public void insertCategory(LNDLWcfService.CodeFirstEntities.Common.Category category) {
+            base.Channel.insertCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task insertCategoryAsync(LNDLWcfService.CodeFirstEntities.Common.Category category) {
+            return base.Channel.insertCategoryAsync(category);
+        }
+        
+        public void updateCategory(LNDLWcfService.CodeFirstEntities.Common.Category category) {
+            base.Channel.updateCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task updateCategoryAsync(LNDLWcfService.CodeFirstEntities.Common.Category category) {
+            return base.Channel.updateCategoryAsync(category);
+        }
+        
+        public void deleteCategory(LNDLWcfService.CodeFirstEntities.Common.Category category) {
+            base.Channel.deleteCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task deleteCategoryAsync(LNDLWcfService.CodeFirstEntities.Common.Category category) {
+            return base.Channel.deleteCategoryAsync(category);
+        }
+        
+        public LNDLWcfService.CodeFirstEntities.Product[] getProduct(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getProduct(start, amount, search, sortOrder);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Product[]> getProductAsync(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getProductAsync(start, amount, search, sortOrder);
+        }
+        
+        public int getProductTotalNumber(string search) {
+            return base.Channel.getProductTotalNumber(search);
+        }
+        
+        public System.Threading.Tasks.Task<int> getProductTotalNumberAsync(string search) {
+            return base.Channel.getProductTotalNumberAsync(search);
+        }
+        
+        public void insertProduct(LNDLWcfService.CodeFirstEntities.Product product) {
+            base.Channel.insertProduct(product);
+        }
+        
+        public System.Threading.Tasks.Task insertProductAsync(LNDLWcfService.CodeFirstEntities.Product product) {
+            return base.Channel.insertProductAsync(product);
+        }
+        
+        public void updateProduct(LNDLWcfService.CodeFirstEntities.Product product) {
+            base.Channel.updateProduct(product);
+        }
+        
+        public System.Threading.Tasks.Task updateProductAsync(LNDLWcfService.CodeFirstEntities.Product product) {
+            return base.Channel.updateProductAsync(product);
+        }
+        
+        public void deleteProduct(LNDLWcfService.CodeFirstEntities.Product product) {
+            base.Channel.deleteProduct(product);
+        }
+        
+        public System.Threading.Tasks.Task deleteProductAsync(LNDLWcfService.CodeFirstEntities.Product product) {
+            return base.Channel.deleteProductAsync(product);
+        }
+        
+        public LNDLWcfService.CodeFirstEntities.OrderFromCustomer[] getOrderFromCustomer(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getOrderFromCustomer(start, amount, search, sortOrder);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.OrderFromCustomer[]> getOrderFromCustomerAsync(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getOrderFromCustomerAsync(start, amount, search, sortOrder);
+        }
+        
+        public int getOrderFromCustomerTotalNumber(string search) {
+            return base.Channel.getOrderFromCustomerTotalNumber(search);
+        }
+        
+        public System.Threading.Tasks.Task<int> getOrderFromCustomerTotalNumberAsync(string search) {
+            return base.Channel.getOrderFromCustomerTotalNumberAsync(search);
+        }
+        
+        public void insertOrderFromCustomer(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order) {
+            base.Channel.insertOrderFromCustomer(order);
+        }
+        
+        public System.Threading.Tasks.Task insertOrderFromCustomerAsync(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order) {
+            return base.Channel.insertOrderFromCustomerAsync(order);
+        }
+        
+        public void updateOrderFromCustomer(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order) {
+            base.Channel.updateOrderFromCustomer(order);
+        }
+        
+        public System.Threading.Tasks.Task updateOrderFromCustomerAsync(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order) {
+            return base.Channel.updateOrderFromCustomerAsync(order);
+        }
+        
+        public void deleteOrderFromCustomer(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order) {
+            base.Channel.deleteOrderFromCustomer(order);
+        }
+        
+        public System.Threading.Tasks.Task deleteOrderFromCustomerAsync(LNDLWcfService.CodeFirstEntities.OrderFromCustomer order) {
+            return base.Channel.deleteOrderFromCustomerAsync(order);
+        }
+        
+        public LNDLWcfService.CodeFirstEntities.OrderToSupplier[] getOrderToSupplier(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getOrderToSupplier(start, amount, search, sortOrder);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.OrderToSupplier[]> getOrderToSupplierAsync(int start, int amount, string search, string sortOrder) {
+            return base.Channel.getOrderToSupplierAsync(start, amount, search, sortOrder);
+        }
+        
+        public int getOrderToSupplierTotalNumber(string search) {
+            return base.Channel.getOrderToSupplierTotalNumber(search);
+        }
+        
+        public System.Threading.Tasks.Task<int> getOrderToSupplierTotalNumberAsync(string search) {
+            return base.Channel.getOrderToSupplierTotalNumberAsync(search);
+        }
+        
+        public void insertOrderToSupplier(LNDLWcfService.CodeFirstEntities.OrderToSupplier order) {
+            base.Channel.insertOrderToSupplier(order);
+        }
+        
+        public System.Threading.Tasks.Task insertOrderToSupplierAsync(LNDLWcfService.CodeFirstEntities.OrderToSupplier order) {
+            return base.Channel.insertOrderToSupplierAsync(order);
+        }
+        
+        public void updateOrderToSupplier(LNDLWcfService.CodeFirstEntities.OrderToSupplier order) {
+            base.Channel.updateOrderToSupplier(order);
+        }
+        
+        public System.Threading.Tasks.Task updateOrderToSupplierAsync(LNDLWcfService.CodeFirstEntities.OrderToSupplier order) {
+            return base.Channel.updateOrderToSupplierAsync(order);
+        }
+        
+        public void deleteOrderToSupplier(LNDLWcfService.CodeFirstEntities.OrderToSupplier order) {
+            base.Channel.deleteOrderToSupplier(order);
+        }
+        
+        public System.Threading.Tasks.Task deleteOrderToSupplierAsync(LNDLWcfService.CodeFirstEntities.OrderToSupplier order) {
+            return base.Channel.deleteOrderToSupplierAsync(order);
         }
     }
     

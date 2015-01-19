@@ -1,0 +1,102 @@
+﻿@*@model LNDL.ServiceReference1.Product*@
+@model LNDLWcfService.CodeFirstEntities.Product
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.categoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.categoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.standardCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.standardCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.listPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.listPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startSaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startSaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endSaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endSaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryId)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

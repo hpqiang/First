@@ -66,24 +66,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\LNDLWcfService.disco" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Inventory.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.OrderFromCustomer.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.OrderToOrder.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.OrderToSupplier.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Product.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.ProductDetail.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Shipping.datasource" />
+    <None Include="Properties\DataSources\LNDLWcfService.CodeFirstEntities.Company.datasource" />
     <None Include="Service References\MSMQServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -115,11 +111,6 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\LNDLWcfService.OrderEntity.datasource" />
     <None Include="Properties\DataSources\LNDLWcfService.Entities.OrderEntity.datasource" />
-    <None Include="Service References\ServiceReference1\LNDLWcfService.wsdl" />
-    <None Include="Service References\ServiceReference1\LNDLWcfService.xsd" />
-    <None Include="Service References\ServiceReference1\LNDLWcfService1.xsd" />
-    <None Include="Service References\ServiceReference1\LNDLWcfService2.xsd" />
-    <None Include="Service References\ServiceReference1\LNDLWcfService3.xsd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LNDLWcfService\LNDLWcfService.csproj">
@@ -138,7 +129,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MSMQServiceReference\" />
     <WCFMetadataStorage Include="Service References\ProductServiceReference\" />
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

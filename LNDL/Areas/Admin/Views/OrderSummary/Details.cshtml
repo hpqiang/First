@@ -1,0 +1,36 @@
+﻿@model LNDLWcfService.CodeFirstEntities.OrderFromCustomer
+
+<div>
+    <h4>OrderFromCustomer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.orderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderIssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderIssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderExpectedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderExpectedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

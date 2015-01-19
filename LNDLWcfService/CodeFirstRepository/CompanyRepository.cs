@@ -9,10 +9,10 @@ namespace LNDLWcfService.CodeFirstRepository
 {
     public class CompanyRepository
     {
-        public List<Person> getCompanyContacts()
-        {
-            CompanyContext cc = new CompanyContext();
-            return cc.Contacts.Include("Contacts").ToList();
-        }
+        //public List<Person> getCompanyContacts()
+        //{
+        //    CompanyContext cc = new CompanyContext();
+        //    return cc.Contacts.Include("Contacts").ToList();
+        //}
     }
 }

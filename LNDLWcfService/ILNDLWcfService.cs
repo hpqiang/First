@@ -1,27 +1,148 @@
-﻿using System;
+﻿using LNDLWcfService.CodeFirstEntities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-//using LNDLWcfService;
+using LNDLWcfService.Common;
+using LNDLWcfService.CodeFirstEntities.Common;
 
 namespace LNDLWcfService
 {
-    // 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码和配置文件中的接口名“IHelloService”。
     [ServiceContract]
     public interface ILNDLWcfService
     {
         [OperationContract]
-        string GetMessage(string name);
+        [ApplyDataContractResolver]
+        List<Company> getCompany(int start, int amount, string search, string sortOrder);
+        [OperationContract]
+        int getCompanyTotalNumber(string search);
+        [OperationContract]
+        void insertCompany(Company company);
+        [OperationContract]
+        void updateCompany(Company company);
+        [OperationContract]
+        void deleteCompany(Company company);
 
         [OperationContract]
-        List<OrderEntity> getOrderList();
+        [ApplyDataContractResolver]
+        List<Category> getCategory(int start, int amount);
+        [OperationContract]
+        int getCategoryTotalNumber();
+        [OperationContract]
+        void insertCategory(Category category);
+        [OperationContract]
+        void updateCategory(Category category);
+        [OperationContract]
+        void deleteCategory(Category category);
+
+        //[OperationContract]
+        //[ApplyDataContractResolver]
+        //Object[] getInstanceList(string className, int start, int amount, string search, string sortOrder);
+        //[OperationContract]
+        //[ApplyDataContractResolver]
+        //int getInstanceTotalNumber(string className, string search);
+        //[OperationContract]
+        //[ApplyDataContractResolver]
+        //void insertInstance(string className, Object obj);
+        //[OperationContract]
+        //[ApplyDataContractResolver]
+        //void updateInstance(string className, Object obj);
+        //[OperationContract]
+        //[ApplyDataContractResolver]
+        //void deleteInstance(string className, Object obj);
 
         [OperationContract]
-        void saveOrder(OrderEntity o);
+        [ApplyDataContractResolver]
+        List<Product> getProduct(int start, int amount, string search, string sortOrder);
+        [OperationContract]
+        int getProductTotalNumber(string search);
+        [OperationContract]
+        void insertProduct(Product product);
+        [OperationContract]
+        void updateProduct(Product product);
+        [OperationContract]
+        void deleteProduct(Product product);
+
+        [OperationContract]
+        [ApplyDataContractResolver]
+        List<OrderFromCustomer> getOrderFromCustomer(int start, int amount, string search, string sortOrder);
+        [OperationContract]
+        int getOrderFromCustomerTotalNumber(string search);
+        [OperationContract]
+        void insertOrderFromCustomer(OrderFromCustomer order);
+        [OperationContract]
+        void updateOrderFromCustomer(OrderFromCustomer order);
+        [OperationContract]
+        void deleteOrderFromCustomer(OrderFromCustomer order);
+
+        [OperationContract]
+        [ApplyDataContractResolver]
+        List<OrderToSupplier> getOrderToSupplier(int start, int amount, string search, string sortOrder);
+        [OperationContract]
+        int getOrderToSupplierTotalNumber(string search);
+        [OperationContract]
+        void insertOrderToSupplier(OrderToSupplier order);
+        [OperationContract]
+        void updateOrderToSupplier(OrderToSupplier order);
+        [OperationContract]
+        void deleteOrderToSupplier(OrderToSupplier order);
+
+        //[OperationContract]
+        //List<ProductDetail> getProductDetail();
+        //[OperationContract]
+        //void insertProductDetail(ProductDetail pd);
+        //[OperationContract]
+        //void updateProductDetail(ProductDetail pd);
+
+        //[OperationContract]
+        //List<OrderFromCustomer> getOrderFromCustomer();
+        //[OperationContract]
+        //void insertOrderFromCustomer(OrderFromCustomer ofc);
+        //[OperationContract]
+        //void updateOrderFromCustomer(OrderFromCustomer ofc);
+
+        //[OperationContract]
+        //List<OrderToSupplier> getOrderToSupplier();
+        //[OperationContract]
+        //void insertOrderToSupplier(OrderToSupplier ots);
+        //[OperationContract]
+        //void updateOrderToSupplier(OrderToSupplier ots);
+
+        //[OperationContract]
+        //List<OrderToOrder> getOrderToOrder();
+        //[OperationContract]
+        //void insertOrderToOrder(OrderToOrder oto);
+        //[OperationContract]
+        //void updateOrderToOrder(OrderToOrder oto);
+
+        //[OperationContract]
+        //List<Inventory> getInventory();
+        //[OperationContract]
+        //void insertInventory(Inventory inv);
+        //[OperationContract]
+        //void updateInventory(Inventory inv);
+
+        //[OperationContract]
+        //List<Shipping> getShipping();
+        //[OperationContract]
+        //void insertShipping(Shipping ship);
+        //[OperationContract]
+        //void updateShipping(Shipping ship);
+
+        //[OperationContract]
+        //List<OrderEntity> getOrderList();
+
+        //[OperationContract]
+        //List<OrderEntity> getOrderList1(string sortOrder, string currentFilter, string searchString, int? page);
+
+        //[OperationContract]
+        //void saveOrder(OrderEntity o);
 
         //[OperationContract]
         //void SetDBInitializer();
@@ -73,67 +194,4 @@ namespace LNDLWcfService
         //            ResponseFormat = WebMessageFormat.Json)]
         UploadedFile Transform(UploadedFile Uploading, string FileName);
     }
-
-    [ServiceContract]
-    public interface IAdminSvr
-    {
-        //[OperationContract]
-        //List<Customer> GetCustomers();
-
-        //[OperationContract]
-        //void InsertCustomer(Customer customer, bool commit);
-
-        //[OperationContract]
-        //void UpdateCustomer(Customer currentCustomer, bool commit);
-
-        //[OperationContract]
-        //void DeleteCustomer(String customerId, bool commit);
-
-        //[OperationContract]
-        ////List<Order> GetOrders();
-        //List<OrderEntity> getOrderList1();
-
-        //[OperationContract]
-        //List<Order_Detail> GetOrderDetailForAnOrder(int orderId);
-
-        //[OperationContract]
-        //List<Order> GetOrderForACustomer(String customerId);
-
-        //[OperationContract]
-        //void CreateOrder(Order order, Order_Detail[] details);
-
-        //[OperationContract]
-        //void UpdateOrder(Order currentOrder, Order_Detail[] details, bool commit);
-
-        //[OperationContract]
-        //void DeleteOrder(int orderId, bool commit);
-
-        //[OperationContract]
-        //void DeleteAnOrderDetailFromAnOrder(int orderId, int orderDetailId, bool commit);
-
-        //[OperationContract]
-        //List<Product> GetProducts();
-
-        //[OperationContract]
-        //Product GetProductById(int id);
-
-        //[OperationContract]
-        //void InsertProduct(Product product, bool commit);
-
-        //[OperationContract]
-        //void UpdateProduct(Product currentProduct, bool commit);
-
-        //[OperationContract]
-        //void DeleteProduct(int productId, bool commit);
-
-        //[OperationContract]
-        //List<Category> GetProductCategories();
-
-        //[OperationContract]
-        //List<Supplier> GetSuppliers();
-
-        [OperationContract]
-        void Commit();
-    }
-
 }

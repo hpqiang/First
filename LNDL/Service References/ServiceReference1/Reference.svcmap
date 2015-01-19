@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="086feae1-e371-4773-8a36-20c0c7731540" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="49cf0e24-ff0c-4354-8d3f-3e276b53e282" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -13,8 +13,10 @@
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
-    <ReferencedAssemblies />
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="LNDLWcfService" />
+    </ReferencedAssemblies>
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
@@ -22,12 +24,15 @@
     <MetadataSource Address="http://localhost:8080/LNDLWcfService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="LNDLWcfService.disco" MetadataType="Disco" ID="da899f0f-31d4-4a83-ae59-144e298907e8" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?disco" />
-    <MetadataFile FileName="LNDLWcfService.xsd" MetadataType="Schema" ID="d9dc52eb-083e-4579-abae-df6932d25711" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd1" />
-    <MetadataFile FileName="LNDLWcfService1.xsd" MetadataType="Schema" ID="7981348a-93d2-402e-8ac9-abc574a09f7a" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd0" />
-    <MetadataFile FileName="LNDLWcfService2.xsd" MetadataType="Schema" ID="4b453a22-3f04-44f8-8ba7-a0042b27f468" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd3" />
-    <MetadataFile FileName="LNDLWcfService3.xsd" MetadataType="Schema" ID="3c7115e5-ebc0-4409-9a5e-3b663aa040c7" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd2" />
-    <MetadataFile FileName="LNDLWcfService.wsdl" MetadataType="Wsdl" ID="52d09e2a-33cb-48a0-b0fd-669c7a6c2893" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?wsdl" />
+    <MetadataFile FileName="LNDLWcfService.xsd" MetadataType="Schema" ID="d44695c8-3aa2-46ba-a0ed-65951457dbb1" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd5" />
+    <MetadataFile FileName="LNDLWcfService.disco" MetadataType="Disco" ID="83039d94-7680-46bd-a96a-7524e7f2202e" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?disco" />
+    <MetadataFile FileName="LNDLWcfService1.xsd" MetadataType="Schema" ID="c9120f9d-e411-45c8-886f-9ab623fd593a" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd6" />
+    <MetadataFile FileName="LNDLWcfService2.xsd" MetadataType="Schema" ID="02f83890-7582-4a81-a6fb-43966acbe6f4" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd1" />
+    <MetadataFile FileName="LNDLWcfService3.xsd" MetadataType="Schema" ID="8124c454-1674-43aa-ae58-c7c2c13711b6" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd0" />
+    <MetadataFile FileName="LNDLWcfService4.xsd" MetadataType="Schema" ID="37ac2b54-ebe7-4c67-95e9-749b8c8bd6b0" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd3" />
+    <MetadataFile FileName="LNDLWcfService5.xsd" MetadataType="Schema" ID="f0b70eff-18c5-4cf7-9606-269dab42b27a" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd2" />
+    <MetadataFile FileName="LNDLWcfService6.xsd" MetadataType="Schema" ID="67b0bc93-3d29-472d-9d8c-39b0f43e63a5" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd4" />
+    <MetadataFile FileName="LNDLWcfService.wsdl" MetadataType="Wsdl" ID="05824348-5cdf-45db-9869-197dfaee5474" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

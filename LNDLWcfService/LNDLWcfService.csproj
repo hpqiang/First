@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevTrends.WCFDataAnnotations">
+      <HintPath>..\packages\WCFDataAnnotations.1.0.0\lib\DevTrends.WCFDataAnnotations.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -73,18 +76,42 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeFirstDAL\CompanyContext.cs" />
-    <Compile Include="CodeFirstDAL\CompanyInitializer.cs" />
-    <Compile Include="CodeFirstEntities\Address.cs" />
-    <Compile Include="CodeFirstEntities\Company.cs" />
-    <Compile Include="CodeFirstEntities\Manufacturing.cs" />
-    <Compile Include="CodeFirstEntities\Order.cs" />
-    <Compile Include="CodeFirstEntities\Person.cs" />
-    <Compile Include="CodeFirstEntities\Product.cs" />
-    <Compile Include="CodeFirstEntities\Shipping.cs" />
-    <Compile Include="CodeFirstEntities\Transaction.cs" />
-    <Compile Include="CodeFirstEntities\Users.cs" />
+    <Compile Include="CodeFirstDAL\Customer\CustomerContext.cs" />
+    <Compile Include="CodeFirstDAL\HywinContext.cs" />
+    <Compile Include="CodeFirstDAL\HywinInitializer.cs" />
+    <Compile Include="CodeFirstDAL\HywinRepository.cs" />
+    <Compile Include="CodeFirstDAL\Inventory\InventoryContext.cs" />
+    <Compile Include="CodeFirstDAL\Inventory\InventoryRepository.cs" />
+    <Compile Include="CodeFirstDAL\Manufacture\ManufactureContext.cs" />
+    <Compile Include="CodeFirstDAL\Order\OrderContext.cs" />
+    <Compile Include="CodeFirstDAL\Sale\SaleContext.cs" />
+    <Compile Include="CodeFirstDAL\Ship\ShipContext.cs" />
+    <Compile Include="CodeFirstDAL\Ship\ShipRepository.cs" />
+    <Compile Include="CodeFirstDAL\Supplier\SupplierContext.cs" />
+    <Compile Include="CodeFirstEntities\Common\Address.cs" />
+    <Compile Include="CodeFirstEntities\Common\Category.cs" />
+    <Compile Include="CodeFirstEntities\Common\CompanyProduct.cs" />
+    <Compile Include="CodeFirstEntities\Common\Photo.cs" />
+    <Compile Include="CodeFirstEntities\Company\Company.cs" />
+    <Compile Include="CodeFirstEntities\Inventory\Inventory.cs" />
+    <Compile Include="CodeFirstEntities\Manufacture\Manufacture.cs" />
+    <Compile Include="CodeFirstEntities\Common\Office.cs" />
+    <Compile Include="CodeFirstEntities\Order\LineItem.cs" />
+    <Compile Include="CodeFirstEntities\Order\OrderFromCustomer.cs" />
+    <Compile Include="CodeFirstEntities\Order\OrderToSupplier.cs" />
+    <Compile Include="CodeFirstEntities\Common\Person.cs" />
+    <Compile Include="CodeFirstEntities\Order\Payment.cs" />
+    <Compile Include="CodeFirstEntities\Order\Sale.cs" />
+    <Compile Include="CodeFirstEntities\Product\Product.cs" />
+    <Compile Include="CodeFirstEntities\Product\ProductDetail.cs" />
+    <Compile Include="CodeFirstEntities\Ship\Shipping.cs" />
+    <Compile Include="CodeFirstEntities\Ship\ShippingList.cs" />
+    <Compile Include="CodeFirstEntities\Transaction\Transaction.cs" />
+    <Compile Include="CodeFirstEntities\User\User.cs" />
+    <Compile Include="CodeFirstEntities\Common\Warehouse.cs" />
     <Compile Include="CodeFirstRepository\CompanyRepository.cs" />
+    <Compile Include="Common\ApplyDataContractResolver.cs" />
+    <Compile Include="Common\CopyClass.cs" />
     <Compile Include="EFDAL\Employees.cs" />
     <Compile Include="IWCFUploader.cs">
       <SubType>Code</SubType>
@@ -95,6 +122,11 @@
     </Compile>
     <Compile Include="ILNDLWcfService.cs" />
     <Compile Include="EFDAL\Sample.cs" />
+    <Compile Include="Migrations\201501121537379_LNDLWcfService.CodeFirstDAL.HywinContext.cs" />
+    <Compile Include="Migrations\201501121537379_LNDLWcfService.CodeFirstDAL.HywinContext.Designer.cs">
+      <DependentUpon>201501121537379_LNDLWcfService.CodeFirstDAL.HywinContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -143,6 +175,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CodeFirstDAL\Company\" />
+    <Folder Include="CodeFirstDAL\Product\" />
+    <Folder Include="CodeFirstEntities\CustomerRetail\" />
+    <Folder Include="CodeFirstEntities\Customer\" />
+    <Folder Include="CodeFirstEntities\Supplier\" />
     <Folder Include="DBFirstEntityFramework\" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +193,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501121537379_LNDLWcfService.CodeFirstDAL.HywinContext.resx">
+      <DependentUpon>201501121537379_LNDLWcfService.CodeFirstDAL.HywinContext.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

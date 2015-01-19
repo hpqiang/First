@@ -23,8 +23,7 @@ namespace LNDLWcfService.CodeFirstDAL
             //this.Database.Create();
             //SaveChanges();
 
-            //Database.SetInitializer(new CompanyInitializer());
-            Database.SetInitializer<CompanyContext>(new CompanyInitializer());
+            //Database.SetInitializer<CompanyContext>(new CompanyInitializer());
 
         }
 
@@ -32,6 +31,15 @@ namespace LNDLWcfService.CodeFirstDAL
         {
             Console.WriteLine("Calling OnModelCreating...");
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //modelBuilder.Entity<Company>()
+            //    .HasMany(c => c.Contacts);
+                //.WithMany(i => i.Courses);
+                //.Map(t => t.MapLeftKey("CourseID")
+                //    .MapRightKey("InstructorID")
+                //    .ToTable("CourseInstructor")
+                //    );
+            //modelBuilder.Entity<Department>().MapToStoredProcedures();
         }
 
     }

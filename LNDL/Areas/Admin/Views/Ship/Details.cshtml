@@ -1,0 +1,76 @@
+﻿@model LNDLWcfService.CodeFirstEntities.Shipping
+
+<div>
+    <h4>Shipping</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productDetailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productDetailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.from)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.from)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.to)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.to)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expectTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expectTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" />
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfLineItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LineItem" nillable="true" type="tns:LineItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLineItem" nillable="true" type="tns:ArrayOfLineItem" />
+  <xs:complexType name="LineItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" minOccurs="0" name="OrderFromCustomer" nillable="true" type="q1:OrderFromCustomer" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" minOccurs="0" name="OrderToSupplier" nillable="true" type="q2:OrderToSupplier" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" minOccurs="0" name="Shipping" nillable="true" type="q3:Shipping" />
+      <xs:element minOccurs="0" name="arriveDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="customerOrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="exMillDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="expectedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="expectedDatebyCustomer" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="inWareHouseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="issueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="lineTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="manufacturingDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="moneyType" type="tns:MoneyType" />
+      <xs:element minOccurs="0" name="orderQty" type="xs:int" />
+      <xs:element minOccurs="0" name="orderStatus" type="tns:OrderStatus" />
+      <xs:element minOccurs="0" name="shippingDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="shippingId" type="xs:int" />
+      <xs:element minOccurs="0" name="supplierOrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="unitPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="unitPriceDiscount" type="xs:decimal" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="LineItem" nillable="true" type="tns:LineItem" />
+  <xs:complexType name="ArrayOfPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payment" nillable="true" type="tns:Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayment" nillable="true" type="tns:ArrayOfPayment" />
+  <xs:complexType name="Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="paymentStatus" type="tns:PaymentStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
+  <xs:simpleType name="PaymentStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEPOSIT" />
+      <xs:enumeration value="INVOICED" />
+      <xs:enumeration value="PAID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentStatus" nillable="true" type="tns:PaymentStatus" />
+  <xs:simpleType name="MoneyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="USD" />
+      <xs:enumeration value="RMB" />
+      <xs:enumeration value="CAD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MoneyType" nillable="true" type="tns:MoneyType" />
+  <xs:simpleType name="OrderStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RECEIVED" />
+      <xs:enumeration value="ISSUES" />
+      <xs:enumeration value="MANU" />
+      <xs:enumeration value="SHIP" />
+      <xs:enumeration value="ARRIVE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+</xs:schema>

@@ -21,11 +21,23 @@ namespace LNDLWcfServiceHost.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/GetMessage", ReplyAction="http://tempuri.org/ILNDLWcfService/GetMessageResponse")]
         System.Threading.Tasks.Task<string> GetMessageAsync(string name);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/getCompanyResponse")]
+        LNDLWcfService.CodeFirstEntities.Company[] getCompany();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getCompany", ReplyAction="http://tempuri.org/ILNDLWcfService/getCompanyResponse")]
+        System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Company[]> getCompanyAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderList", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderListResponse")]
         LNDLWcfService.OrderEntity[] getOrderList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderList", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderListResponse")]
         System.Threading.Tasks.Task<LNDLWcfService.OrderEntity[]> getOrderListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderList1", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderList1Response")]
+        LNDLWcfService.OrderEntity[] getOrderList1(string sortOrder, string currentFilter, string searchString, System.Nullable<int> page);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/getOrderList1", ReplyAction="http://tempuri.org/ILNDLWcfService/getOrderList1Response")]
+        System.Threading.Tasks.Task<LNDLWcfService.OrderEntity[]> getOrderList1Async(string sortOrder, string currentFilter, string searchString, System.Nullable<int> page);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILNDLWcfService/saveOrder", ReplyAction="http://tempuri.org/ILNDLWcfService/saveOrderResponse")]
         void saveOrder(LNDLWcfService.OrderEntity o);
@@ -69,12 +81,28 @@ namespace LNDLWcfServiceHost.ServiceReference1 {
             return base.Channel.GetMessageAsync(name);
         }
         
+        public LNDLWcfService.CodeFirstEntities.Company[] getCompany() {
+            return base.Channel.getCompany();
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.CodeFirstEntities.Company[]> getCompanyAsync() {
+            return base.Channel.getCompanyAsync();
+        }
+        
         public LNDLWcfService.OrderEntity[] getOrderList() {
             return base.Channel.getOrderList();
         }
         
         public System.Threading.Tasks.Task<LNDLWcfService.OrderEntity[]> getOrderListAsync() {
             return base.Channel.getOrderListAsync();
+        }
+        
+        public LNDLWcfService.OrderEntity[] getOrderList1(string sortOrder, string currentFilter, string searchString, System.Nullable<int> page) {
+            return base.Channel.getOrderList1(sortOrder, currentFilter, searchString, page);
+        }
+        
+        public System.Threading.Tasks.Task<LNDLWcfService.OrderEntity[]> getOrderList1Async(string sortOrder, string currentFilter, string searchString, System.Nullable<int> page) {
+            return base.Channel.getOrderList1Async(sortOrder, currentFilter, searchString, page);
         }
         
         public void saveOrder(LNDLWcfService.OrderEntity o) {

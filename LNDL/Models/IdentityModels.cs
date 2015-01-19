@@ -21,7 +21,8 @@ namespace LNDL.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        //: base("DefaultConnection", throwIfV1Schema: false)
+            : base("UserConnection", throwIfV1Schema: false)
         {
         }
 
@@ -30,6 +31,6 @@ namespace LNDL.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<LNDLWcfService.OrderEntity> OrderEntities { get; set; }
+        //public System.Data.Entity.DbSet<LNDLWcfService.OrderEntity> OrderEntities { get; set; }
     }
 }

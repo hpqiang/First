@@ -14,10 +14,10 @@
 @*<a id="img" href="@Url.Action("About", "Home", new { text=Request.QueryString["textBox"]})" ></a>*@
 <br />
 
-@using (Html.BeginForm("About", "Home", FormMethod.Post))
+@*@using (Html.BeginForm("About", "Home", FormMethod.Post))
 {
 
     @Html.TextBox("text")
 
     <input type="submit" value="Update" />
-}
+}*@

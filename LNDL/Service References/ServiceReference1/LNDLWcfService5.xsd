@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Common" />
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" />
+  <xs:complexType name="ArrayOfCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Company" nillable="true" type="tns:Company" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompany" nillable="true" type="tns:ArrayOfCompany" />
+  <xs:complexType name="Company">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BriefName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Common" minOccurs="0" name="CompanyProduct" nillable="true" type="q1:ArrayOfCompanyProduct" />
+      <xs:element minOccurs="0" name="DateSince" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Offices" nillable="true" type="tns:ArrayOfOffice" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="companyType" nillable="true" type="tns:CompanyType" />
+      <xs:element minOccurs="0" name="country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="logo" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Company" nillable="true" type="tns:Company" />
+  <xs:complexType name="ArrayOfOffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Office" nillable="true" type="tns:Office" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOffice" nillable="true" type="tns:ArrayOfOffice" />
+  <xs:complexType name="Office">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="tns:Company" />
+      <xs:element minOccurs="0" name="FKCompanyID" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="People" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:element minOccurs="0" name="buildingName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="type" nillable="true" type="tns:OfficeType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Office" nillable="true" type="tns:Office" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Office" nillable="true" type="tns:Office" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="addressType" nillable="true" type="tns:AddressType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:simpleType name="AddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CAN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CHN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="USA">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="photo" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:simpleType name="OfficeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OFFICE" />
+      <xs:enumeration value="WAREHOUSE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OfficeType" nillable="true" type="tns:OfficeType" />
+  <xs:simpleType name="CompanyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BUYER_CUSTOMER" />
+      <xs:enumeration value="RETAIL_CUSTOMER" />
+      <xs:enumeration value="SUPPLIER" />
+      <xs:enumeration value="IMPORTER" />
+      <xs:enumeration value="SHIPPER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CompanyType" nillable="true" type="tns:CompanyType" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Common" minOccurs="0" name="Category" nillable="true" type="q2:Category" />
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Common" minOccurs="0" name="Photos" nillable="true" type="q3:ArrayOfPhoto" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Common" minOccurs="0" name="ProductCompany" nillable="true" type="q4:ArrayOfCompanyProduct" />
+      <xs:element minOccurs="0" name="Size" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="categoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="customerOrders" nillable="true" type="tns:ArrayOfOrderFromCustomer" />
+      <xs:element minOccurs="0" name="endSaleDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="listPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="productNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="standardCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="startSaleDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="supplierOrders" nillable="true" type="tns:ArrayOfOrderToSupplier" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfOrderFromCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderFromCustomer" nillable="true" type="tns:OrderFromCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderFromCustomer" nillable="true" type="tns:ArrayOfOrderFromCustomer" />
+  <xs:complexType name="OrderFromCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" minOccurs="0" name="LineItems" nillable="true" type="q5:ArrayOfLineItem" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="dueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="modifiedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="onLineOrder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="orderDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" minOccurs="0" name="payment" nillable="true" type="q6:ArrayOfPayment" />
+      <xs:element minOccurs="0" name="purchaseOrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="salesOrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subTotal" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="OrderFromCustomer" nillable="true" type="tns:OrderFromCustomer" />
+  <xs:complexType name="OrderToSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" minOccurs="0" name="LineItems" nillable="true" type="q7:ArrayOfLineItem" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="Shipping" nillable="true" type="tns:ArrayOfShipping" />
+      <xs:element minOccurs="0" name="dueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="modifiedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="orderDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="orderPDFPath" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" minOccurs="0" name="payment" nillable="true" type="q8:ArrayOfPayment" />
+      <xs:element minOccurs="0" name="purchaseOrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="salesOrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subTotal" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="OrderToSupplier" nillable="true" type="tns:OrderToSupplier" />
+  <xs:complexType name="ArrayOfShipping">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shipping" nillable="true" type="tns:Shipping" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipping" nillable="true" type="tns:ArrayOfShipping" />
+  <xs:complexType name="Shipping">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="arrivalTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="expectTime" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" minOccurs="0" name="lineItems" nillable="true" type="q9:ArrayOfLineItem" />
+      <xs:element minOccurs="0" name="shippingStatus" type="tns:ShippingStatus" />
+      <xs:element minOccurs="0" name="start" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Shipping" nillable="true" type="tns:Shipping" />
+  <xs:simpleType name="ShippingStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PREPARE" />
+      <xs:enumeration value="ONROUTE" />
+      <xs:enumeration value="ARRIVECUSTOM" />
+      <xs:enumeration value="ARRIVEWAREHOUSE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ShippingStatus" nillable="true" type="tns:ShippingStatus" />
+  <xs:complexType name="ArrayOfOrderToSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderToSupplier" nillable="true" type="tns:OrderToSupplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderToSupplier" nillable="true" type="tns:ArrayOfOrderToSupplier" />
+</xs:schema>

@@ -4,33 +4,162 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" />
-      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Common" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities.Order" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd5" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ILNDLWcfService_GetMessage_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMessage" />
+  <wsdl:message name="ILNDLWcfService_getCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompany" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_GetMessage_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  <wsdl:message name="ILNDLWcfService_getCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyResponse" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_getOrderList_InputMessage">
-    <wsdl:part name="parameters" element="tns:getOrderList" />
+  <wsdl:message name="ILNDLWcfService_getCompanyTotalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyTotalNumber" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_getOrderList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getOrderListResponse" />
+  <wsdl:message name="ILNDLWcfService_getCompanyTotalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyTotalNumberResponse" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_saveOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns:saveOrder" />
+  <wsdl:message name="ILNDLWcfService_insertCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertCompany" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_saveOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns:saveOrderResponse" />
+  <wsdl:message name="ILNDLWcfService_insertCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertCompanyResponse" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_SetDBInitializer_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetDBInitializer" />
+  <wsdl:message name="ILNDLWcfService_updateCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCompany" />
   </wsdl:message>
-  <wsdl:message name="ILNDLWcfService_SetDBInitializer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetDBInitializerResponse" />
+  <wsdl:message name="ILNDLWcfService_updateCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCompany" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCategory" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getCategoryTotalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryTotalNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getCategoryTotalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryTotalNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertCategory" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCategory" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProduct" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getProductTotalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductTotalNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getProductTotalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductTotalNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertProduct" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateProduct" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderFromCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderFromCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderFromCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderFromCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderFromCustomerTotalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderFromCustomerTotalNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderFromCustomerTotalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderFromCustomerTotalNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertOrderFromCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertOrderFromCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertOrderFromCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertOrderFromCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateOrderFromCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateOrderFromCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateOrderFromCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateOrderFromCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteOrderFromCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteOrderFromCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteOrderFromCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteOrderFromCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderToSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderToSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderToSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderToSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderToSupplierTotalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderToSupplierTotalNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderToSupplierTotalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderToSupplierTotalNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertOrderToSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertOrderToSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_insertOrderToSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertOrderToSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateOrderToSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateOrderToSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_updateOrderToSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateOrderToSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteOrderToSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteOrderToSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_deleteOrderToSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteOrderToSupplierResponse" />
   </wsdl:message>
   <wsdl:message name="IWCFUploader_Upload_InputMessage">
     <wsdl:part name="parameters" element="tns:Upload" />
@@ -45,21 +174,105 @@
     <wsdl:part name="parameters" element="tns:TransformResponse" />
   </wsdl:message>
   <wsdl:portType name="ILNDLWcfService">
-    <wsdl:operation name="GetMessage">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/GetMessage" message="tns:ILNDLWcfService_GetMessage_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/GetMessageResponse" message="tns:ILNDLWcfService_GetMessage_OutputMessage" />
+    <wsdl:operation name="getCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getCompany" message="tns:ILNDLWcfService_getCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getCompanyResponse" message="tns:ILNDLWcfService_getCompany_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getOrderList">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderList" message="tns:ILNDLWcfService_getOrderList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderListResponse" message="tns:ILNDLWcfService_getOrderList_OutputMessage" />
+    <wsdl:operation name="getCompanyTotalNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumber" message="tns:ILNDLWcfService_getCompanyTotalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumberResponse" message="tns:ILNDLWcfService_getCompanyTotalNumber_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="saveOrder">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/saveOrder" message="tns:ILNDLWcfService_saveOrder_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/saveOrderResponse" message="tns:ILNDLWcfService_saveOrder_OutputMessage" />
+    <wsdl:operation name="insertCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/insertCompany" message="tns:ILNDLWcfService_insertCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/insertCompanyResponse" message="tns:ILNDLWcfService_insertCompany_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetDBInitializer">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/SetDBInitializer" message="tns:ILNDLWcfService_SetDBInitializer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/SetDBInitializerResponse" message="tns:ILNDLWcfService_SetDBInitializer_OutputMessage" />
+    <wsdl:operation name="updateCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/updateCompany" message="tns:ILNDLWcfService_updateCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/updateCompanyResponse" message="tns:ILNDLWcfService_updateCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteCompany" message="tns:ILNDLWcfService_deleteCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteCompanyResponse" message="tns:ILNDLWcfService_deleteCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getCategory" message="tns:ILNDLWcfService_getCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getCategoryResponse" message="tns:ILNDLWcfService_getCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryTotalNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumber" message="tns:ILNDLWcfService_getCategoryTotalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumberResponse" message="tns:ILNDLWcfService_getCategoryTotalNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/insertCategory" message="tns:ILNDLWcfService_insertCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/insertCategoryResponse" message="tns:ILNDLWcfService_insertCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/updateCategory" message="tns:ILNDLWcfService_updateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/updateCategoryResponse" message="tns:ILNDLWcfService_updateCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteCategory" message="tns:ILNDLWcfService_deleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteCategoryResponse" message="tns:ILNDLWcfService_deleteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getProduct" message="tns:ILNDLWcfService_getProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getProductResponse" message="tns:ILNDLWcfService_getProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductTotalNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getProductTotalNumber" message="tns:ILNDLWcfService_getProductTotalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getProductTotalNumberResponse" message="tns:ILNDLWcfService_getProductTotalNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/insertProduct" message="tns:ILNDLWcfService_insertProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/insertProductResponse" message="tns:ILNDLWcfService_insertProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/updateProduct" message="tns:ILNDLWcfService_updateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/updateProductResponse" message="tns:ILNDLWcfService_updateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteProduct" message="tns:ILNDLWcfService_deleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteProductResponse" message="tns:ILNDLWcfService_deleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderFromCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomer" message="tns:ILNDLWcfService_getOrderFromCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerResponse" message="tns:ILNDLWcfService_getOrderFromCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderFromCustomerTotalNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumber" message="tns:ILNDLWcfService_getOrderFromCustomerTotalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumberResponse" message="tns:ILNDLWcfService_getOrderFromCustomerTotalNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertOrderFromCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomer" message="tns:ILNDLWcfService_insertOrderFromCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomerResponse" message="tns:ILNDLWcfService_insertOrderFromCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateOrderFromCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomer" message="tns:ILNDLWcfService_updateOrderFromCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomerResponse" message="tns:ILNDLWcfService_updateOrderFromCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrderFromCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomer" message="tns:ILNDLWcfService_deleteOrderFromCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomerResponse" message="tns:ILNDLWcfService_deleteOrderFromCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderToSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplier" message="tns:ILNDLWcfService_getOrderToSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplierResponse" message="tns:ILNDLWcfService_getOrderToSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderToSupplierTotalNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumber" message="tns:ILNDLWcfService_getOrderToSupplierTotalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumberResponse" message="tns:ILNDLWcfService_getOrderToSupplierTotalNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertOrderToSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/insertOrderToSupplier" message="tns:ILNDLWcfService_insertOrderToSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/insertOrderToSupplierResponse" message="tns:ILNDLWcfService_insertOrderToSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateOrderToSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/updateOrderToSupplier" message="tns:ILNDLWcfService_updateOrderToSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/updateOrderToSupplierResponse" message="tns:ILNDLWcfService_updateOrderToSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrderToSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplier" message="tns:ILNDLWcfService_deleteOrderToSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplierResponse" message="tns:ILNDLWcfService_deleteOrderToSupplier_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWCFUploader">
@@ -74,8 +287,8 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILNDLWcfService" type="tns:ILNDLWcfService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetMessage">
-      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/GetMessage" style="document" />
+    <wsdl:operation name="getCompany">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getCompany" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -83,8 +296,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getOrderList">
-      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderList" style="document" />
+    <wsdl:operation name="getCompanyTotalNumber">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getCompanyTotalNumber" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -92,8 +305,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="saveOrder">
-      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/saveOrder" style="document" />
+    <wsdl:operation name="insertCompany">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/insertCompany" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -101,8 +314,197 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetDBInitializer">
-      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/SetDBInitializer" style="document" />
+    <wsdl:operation name="updateCompany">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/updateCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCompany">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/deleteCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryTotalNumber">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getCategoryTotalNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCategory">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/insertCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCategory">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/updateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCategory">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/deleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductTotalNumber">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getProductTotalNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertProduct">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/insertProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateProduct">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/updateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProduct">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/deleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderFromCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderFromCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderFromCustomerTotalNumber">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderFromCustomerTotalNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertOrderFromCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/insertOrderFromCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOrderFromCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/updateOrderFromCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrderFromCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/deleteOrderFromCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderToSupplier">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderToSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderToSupplierTotalNumber">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderToSupplierTotalNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertOrderToSupplier">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/insertOrderToSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOrderToSupplier">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/updateOrderToSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrderToSupplier">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/deleteOrderToSupplier" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

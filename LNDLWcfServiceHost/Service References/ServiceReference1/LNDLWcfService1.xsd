@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" />
-  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" />
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" />
+  <xs:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd4" namespace="http://schemas.microsoft.com/Message" />
   <xs:element name="GetMessage">
     <xs:complexType>
       <xs:sequence>
@@ -16,6 +17,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getCompany">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" minOccurs="0" name="getCompanyResult" nillable="true" type="q1:ArrayOfCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getOrderList">
     <xs:complexType>
       <xs:sequence />
@@ -24,14 +37,31 @@
   <xs:element name="getOrderListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="getOrderListResult" nillable="true" type="q1:ArrayOfOrderEntity" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="getOrderListResult" nillable="true" type="q2:ArrayOfOrderEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrderList1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sortOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="page" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrderList1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="getOrderList1Result" nillable="true" type="q3:ArrayOfOrderEntity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="saveOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="o" nillable="true" type="q2:OrderEntity" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="o" nillable="true" type="q4:OrderEntity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -43,21 +73,21 @@
   <xs:element name="Upload">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/Message" name="Uploading" type="q3:StreamBody" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/Message" name="Uploading" type="q5:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UploadResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="UploadResult" nillable="true" type="q4:UploadedFile" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="UploadResult" nillable="true" type="q6:UploadedFile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Transform">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="Uploading" nillable="true" type="q5:UploadedFile" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="Uploading" nillable="true" type="q7:UploadedFile" />
         <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -65,7 +95,7 @@
   <xs:element name="TransformResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="TransformResult" nillable="true" type="q6:UploadedFile" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LNDLWcfService" minOccurs="0" name="TransformResult" nillable="true" type="q8:UploadedFile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

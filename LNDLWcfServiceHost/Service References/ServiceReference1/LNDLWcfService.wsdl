@@ -4,8 +4,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" />
-      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService.CodeFirstEntities" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LNDLWcfService" />
+      <xsd:import schemaLocation="http://localhost:8080/LNDLWcfService?xsd=xsd4" namespace="http://schemas.microsoft.com/Message" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILNDLWcfService_GetMessage_InputMessage">
@@ -14,11 +15,23 @@
   <wsdl:message name="ILNDLWcfService_GetMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompany" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyResponse" />
+  </wsdl:message>
   <wsdl:message name="ILNDLWcfService_getOrderList_InputMessage">
     <wsdl:part name="parameters" element="tns:getOrderList" />
   </wsdl:message>
   <wsdl:message name="ILNDLWcfService_getOrderList_OutputMessage">
     <wsdl:part name="parameters" element="tns:getOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderList1_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderList1" />
+  </wsdl:message>
+  <wsdl:message name="ILNDLWcfService_getOrderList1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderList1Response" />
   </wsdl:message>
   <wsdl:message name="ILNDLWcfService_saveOrder_InputMessage">
     <wsdl:part name="parameters" element="tns:saveOrder" />
@@ -43,9 +56,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/GetMessage" message="tns:ILNDLWcfService_GetMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/GetMessageResponse" message="tns:ILNDLWcfService_GetMessage_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getCompany" message="tns:ILNDLWcfService_getCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getCompanyResponse" message="tns:ILNDLWcfService_getCompany_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getOrderList">
       <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderList" message="tns:ILNDLWcfService_getOrderList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderListResponse" message="tns:ILNDLWcfService_getOrderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderList1">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderList1" message="tns:ILNDLWcfService_getOrderList1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILNDLWcfService/getOrderList1Response" message="tns:ILNDLWcfService_getOrderList1_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="saveOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/ILNDLWcfService/saveOrder" message="tns:ILNDLWcfService_saveOrder_InputMessage" />
@@ -73,8 +94,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getCompany">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getOrderList">
       <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderList1">
+      <soap:operation soapAction="http://tempuri.org/ILNDLWcfService/getOrderList1" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

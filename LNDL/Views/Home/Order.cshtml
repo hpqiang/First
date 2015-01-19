@@ -1,4 +1,9 @@
-﻿@model IEnumerable<LNDLWcfService.OrderEntity>
+﻿@*@model IEnumerable<LNDLWcfService.OrderEntity>*@
+
+@model PagedList.IPagedList<LNDLWcfService.OrderEntity>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 
 @{
     ViewBag.Title = "Order";
@@ -11,55 +16,114 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.productName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.productType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.expectDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.clientPOFileName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.vendorPOFileName)
-        </th>
-        <th></th>
-    </tr>
+        <td>
+            @using (Html.BeginForm("Order", "Home", FormMethod.Get))
+            {
+                <p>
+                    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="Search" class="btn  btn-default" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.productName)
+                    <label>Item Per Page: </label>
+                    @Html.DropDownList("pageSize", new SelectList(
+                       new List<Object>{
+                       new { value = 3 , text = "3"  },
+                       new { value = 5 , text = "5"  },
+                       new { value = 10 , text = "10"  },
+                       new { value = 15 , text = "15" },
+                       new { value = 20 , text = "20"}
+                    },
+                  "value",
+                  "text"
+                 ), htmlAttributes: new { @class = "dropdown-toggle" })
+                    <button type="submit" class="btn  btn-default">Display</button>
+                </p>
+            }
         </td>
+        
         <td>
-            @Html.DisplayFor(modelItem => item.productType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.startDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.expectDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clientPOFileName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vendorPOFileName)
-        </td>
-        <td>
-            @*<div class="btn btn-primary">*@
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) 
-            @*</div>*@
-            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-info" })
+            @*@using (Html.BeginForm("Order", "Home"))
+            {
+                <p>
+                <label>Item Per Page: </label>
+                @Html.DropDownList("pageSize", new SelectList(
+                  new List<Object>{
+                       new { value = 3 , text = "3"  },
+                       new { value = 5 , text = "5"  },
+                       new { value = 10 , text = "10"  },
+                       new { value = 15 , text = "15" },
+                       new { value = 20 , text = "20"}
+                    },
+                  "value",
+                  "text"
+                ))
+                <button type="submit">Display</button>
+                </p>
+            }*@
         </td>
     </tr>
+</table>
+
+
+@*Parameters: ViewBag.NameSortParm=@ViewBag.NameSortParm, ViewBag.CurrentFilter=@ViewBag.CurrentFilter and ViewBag.CurrentSort=@ViewBag.CurrentSort
+ViewBag.PageSize=@ViewBag.PageSize*@
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().productName)*@
+                @Html.ActionLink("Product Name", "Order", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().productType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().startDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().expectDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().clientPOFileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().vendorPOFileName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.expectDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientPOFileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vendorPOFileName)
+                </td>
+                <td>
+                    @*<div class="btn btn-primary">*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })
+                    @*</div>*@
+                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
 }
 
-</table>
+    </table>
+    <br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Order",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

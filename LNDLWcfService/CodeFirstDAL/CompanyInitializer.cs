@@ -7,7 +7,7 @@ using System.Web;
 
 namespace LNDLWcfService.CodeFirstDAL
 {
-    public class CompanyInitializer: /*DropCreateDatabaseAlways<CompanyContext> */DropCreateDatabaseIfModelChanges<CompanyContext>/**/
+    public class CompanyInitializer: DropCreateDatabaseAlways<CompanyContext> /*DropCreateDatabaseIfModelChanges<CompanyContext>/**/
     {
         protected override void Seed(CompanyContext context)
         {
@@ -15,9 +15,9 @@ namespace LNDLWcfService.CodeFirstDAL
 
             var addresses = new List<Address>
             {
-                new Address{Number="41",Street="Aileen Road",City="Thornhill",State="ON",Country="Canada",ZipCode="L3T 5P7"},
-                new Address{Number="42",Street="Aileen Road",City="Thornhill",State="ON",Country="Canada",ZipCode="L3T 5P7"},
-                new Address{Number="43",Street="Aileen Road",City="Thornhill",State="ON",Country="Canada",ZipCode="L3T 5P7"},
+                new Address{Number="41",Street="Aileen Road1",City="Thornhill",State="ON",Country="Canada",ZipCode="L3T 5P7"},
+                new Address{Number="42",Street="Aileen Road2",City="Thornhill",State="ON",Country="Canada",ZipCode="L3T 5P7"},
+                new Address{Number="43",Street="Aileen Road3",City="Thornhill",State="ON",Country="Canada",ZipCode="L3T 5P7"},
             };
 
             addresses.ForEach(s => context.Addresses.Add(s));
@@ -26,10 +26,12 @@ namespace LNDLWcfService.CodeFirstDAL
             var companies = new List<Company>
             {
                 new Company{BriefName="HW",FullName="Hywin HiTech Ltd.",Type="Owner",Phone="416-888-6666",Email="hpqiang@gmail.com", WebSite="localhost",DateSince=DateTime.Parse("2014-10-11"),IsActive=true,AddressId=1},
-                new Company{BriefName="YH",FullName="YongHe Textile Ltd.",Type="Supplier",Phone="86057233338888",Email="info@yh.com", WebSite="localhost",DateSince=DateTime.Parse("2012-10-11"),IsActive=true,AddressId=2},
-                new Company{BriefName="QC",FullName="QuiltCraft Curtain & Bedding Ltd.",Type="Customer",Phone="503-917-3333",Email="admin@quiltcraft.com", WebSite="localhost",DateSince=DateTime.Parse("2013-10-11"),IsActive=true,AddressId=3}
+                new Company{BriefName="YH",FullName="YongHe Textile Ltd.",Type="Supplier",Phone="86057233338888",Email="info@yh.com", WebSite="localhost",DateSince=DateTime.Parse("2013-10-11"),IsActive=true,AddressId=2},
+                new Company{BriefName="QC",FullName="QuiltCraft Curtain & Bedding Ltd.",Type="Customer",Phone="503-917-3333",Email="admin@quiltcraft.com", WebSite="localhost",DateSince=DateTime.Parse("2014-10-11"),IsActive=true,AddressId=3}
             };
-
+            //DateSince=DateTime.Parse("2014-10-11"),
+            //DateSince=DateTime.Parse("2012-10-11"),
+            //DateSince=DateTime.Parse("2013-10-11"),
             companies.ForEach(s => context.Companies.Add(s));
             context.SaveChanges(); var persons = new List<Person>
             {

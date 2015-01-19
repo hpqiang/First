@@ -16,3 +16,21 @@ C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework 
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\MSMQNonSecurityService.pdb
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\WcfProductService.dll
 C:\mqiang\LearningCenter\ASP.NET\ASP.NET MVC Application Using Entity Framework Code First\C#\LNDLWcfServiceHost\bin\Debug\WcfProductService.pdb
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\LNDLWcfServiceHost.exe.config
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\LNDLWcfServiceHost.exe
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\LNDLWcfServiceHost.pdb
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\EntityFramework.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\EntityFramework.SqlServer.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\LNDLWcfService.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\MSMQNonSecurityService.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\WcfProductService.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\LNDLWcfService.pdb
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\MSMQNonSecurityService.pdb
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\WcfProductService.pdb
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\EntityFramework.xml
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\EntityFramework.SqlServer.xml
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\obj\Debug\LNDLWcfServiceHostConsole.csprojResolveAssemblyReference.cache
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\obj\Debug\LNDLWcfServiceHost.exe
+C:\mqiang\ASP.NET\C#\LNDLWcfServiceHost\obj\Debug\LNDLWcfServiceHost.pdb

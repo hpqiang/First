@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="787d5bf3-38e3-4ade-a0d8-7e02ff2a2cec" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<<<<<<< HEAD
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0984f8a1-bbdb-4a06-b203-91a5ce234865" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+=======
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="29922866-e19c-4ea0-ae33-da794e1b0d0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+>>>>>>> 3215e366dca731fd3c7ded480e341d21e2be1c1b
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +26,21 @@
     <MetadataSource Address="http://localhost:8080/LNDLWcfService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="LNDLWcfService.disco" MetadataType="Disco" ID="f542d364-2d36-4767-b73c-31db1863df2e" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?disco" />
-    <MetadataFile FileName="LNDLWcfService.xsd" MetadataType="Schema" ID="5dccaba6-4717-49a9-b7af-5a2d5c89ca06" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd1" />
-    <MetadataFile FileName="LNDLWcfService1.xsd" MetadataType="Schema" ID="0709224e-41e6-4998-893c-dd2f9f2c8172" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd0" />
-    <MetadataFile FileName="LNDLWcfService2.xsd" MetadataType="Schema" ID="9fe66694-ec0b-4101-8ba6-5359e6257e54" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd3" />
-    <MetadataFile FileName="LNDLWcfService3.xsd" MetadataType="Schema" ID="42d8e554-7196-434c-b01e-a2826da6195e" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd2" />
-    <MetadataFile FileName="LNDLWcfService.wsdl" MetadataType="Wsdl" ID="7a52dda1-5c2b-4ca7-885e-f4d2dfac7a15" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?wsdl" />
+<<<<<<< HEAD
+    <MetadataFile FileName="LNDLWcfService.disco" MetadataType="Disco" ID="aaa85d71-42d0-40fb-86de-511bb30a47f4" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?disco" />
+    <MetadataFile FileName="LNDLWcfService.xsd" MetadataType="Schema" ID="ed2a911e-07de-4f38-8db4-e4fb8d0889b0" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd1" />
+    <MetadataFile FileName="LNDLWcfService1.xsd" MetadataType="Schema" ID="32e44e76-9ced-4dbe-bf89-e8694fdc3d95" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd0" />
+    <MetadataFile FileName="LNDLWcfService2.xsd" MetadataType="Schema" ID="5d3abcf9-f241-476b-8b73-f45943ec936f" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd3" />
+    <MetadataFile FileName="LNDLWcfService3.xsd" MetadataType="Schema" ID="788a8f2a-733d-46f6-a05c-ef7ef2451de1" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd2" />
+    <MetadataFile FileName="LNDLWcfService4.xsd" MetadataType="Schema" ID="6591dd93-b605-44c7-838b-71ee882182c0" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?xsd=xsd4" />
+    <MetadataFile FileName="LNDLWcfService.wsdl" MetadataType="Wsdl" ID="ce359e26-ec63-4ed1-9646-9138a6648d92" SourceId="1" SourceUrl="http://localhost:8080/LNDLWcfService?wsdl" />
+=======
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d732245d-39c3-4003-856e-6bb93663482f" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="f7537b40-22f2-4048-9139-0c6eac22df5c" SourceId="1" SourceUrl="http://localhost:8080/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="053cc49c-eac2-4ca6-8bf2-994128db2796" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
+    <MetadataFile FileName="LNDLWcfService.wsdl" MetadataType="Wsdl" ID="e20e1bf2-8b8c-4b28-9d9b-9d6f73dcbf6c" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="892711aa-8946-472a-a08f-2da5a4d03e9d" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
+>>>>>>> 3215e366dca731fd3c7ded480e341d21e2be1c1b
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

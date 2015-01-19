@@ -1,0 +1,158 @@
+﻿@model List<LNDL.Areas.Admin.ViewModels.RoleSelectEditorViewModel>
+
+@{
+    ViewBag.Title = "ManageUserRoles";
+}
+
+<h2>Manage User Roles</h2>
+@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+<hr />
+
+<h2>User and Role</h2>
+
+@*@using (Html.BeginForm("ManageUserRoles", "Role", FormMethod.Post, new { @class = "navbar-form", @role = "search" }))
+{*@
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<table class="table">
+
+    <tr>
+        <th>
+
+        </th>
+        @foreach (var item in Model)
+        {
+            foreach(var x in item.s)
+            { 
+            <th>
+                @Html.DisplayFor(modelItem => x.Role.Name)
+            </th>
+            }
+            break;
+        }
+    </tr>
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                @foreach (var x in item.s)
+                {
+                    <td>
+                            @*@Html.CheckBox(item.User.UserName, x.Selected)*@
+                            @Html.DisplayFor(modelItem => x.Selected)
+
+
+                            @*<input type="checkbox" name="chk" value="@x.Selected">*@
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("Edit", "ManageUserRolesEdit", new { id = item.Id })
+                    @Ajax.ActionLink("edit ajax", "ManageUserRolesEdit_Ajax", "Role",
+                            new { id = item.Id },
+                            new AjaxOptions
+                            {
+                                HttpMethod = "GET",
+                                UpdateTargetId = "yyy",
+                                InsertionMode = InsertionMode.Replace
+                            })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="yyy">
+                    </div>
+                </td>
+            </tr>
+    }
+</table>
+    @*<input type="submit" value="Save" />
+    <a href="@Url.Action("ManageUserRolesSave", new { mm = Model })">
+        <i class="glyphicon glyphicon-save" title="Save"></i>
+    </a>*@
+    @*}*@
+
+    @*<script>
+        $(document).ready(function()
+        {
+            $("input[type=checkbox]").click(function()
+            {
+                    var categoryVals = [];
+                    categoryVals.push('');
+                    $('#Category_category :checked').each(function() {
+                  categoryVals.push($(this).val());
+                });
+                $.ajax({
+                    type:"POST",
+                    url:"<?php echo $this->createUrl('ads/searchresult'); ?>", //url of the action page
+                    data:{'category': categoryVals},
+                    success : function(response){
+                       //code to do somethng if its success
+                    }
+                    });
+            }
+        }
+        </script>*@
+
+    @*<h2>Role Add to User</h2>
+
+        @using (Html.BeginForm("RoleAddToUser", "Role"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <p>
+                Username : @Html.TextBox("UserName")
+                Role Name: @Html.DropDownList("Role Name", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+                @*User List: @Html.DropDownList("User Name", (IEnumerable<SelectListItem>)ViewBag.Users, "Select ...")
+                @foreach(var item in ViewBag.Users)
+                {
+                    @item.UserName
+                    @*<input type="checkbox"
+                }
+            </p>
+
+            <input type="submit" value="Save" />
+        }
+        <hr />
+        <h3>Get Roles for a User</h3>
+        @using (Html.BeginForm("GetRoles", "Role"))
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                Username : @Html.TextBox("UserName")
+                <input type="submit" value="Get Roles for this User" />
+            </p>
+        }
+
+        @if (ViewBag.RolesForThisUser != null)
+        {
+            <div style="background-color:yellow;">
+                <h3>Roles for this user </h3>
+                <ol>
+                    @foreach (string s in ViewBag.RolesForThisUser)
+                    {
+                        <li>@s</li>
+                    }
+                </ol>
+            </div>
+        }
+
+        <hr />
+        <h3>Delete A User from a Role</h3>
+
+        @using (Html.BeginForm("DeleteRoleForUser", "Role"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <p>
+                Username : @Html.TextBox("UserName")
+                Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+
+            </p>
+
+            <input type="submit" value="Delete this user from Role" />
+        }*@

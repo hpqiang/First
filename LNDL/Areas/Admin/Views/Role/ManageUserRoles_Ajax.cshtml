@@ -1,0 +1,37 @@
+﻿
+@model LNDL.Areas.Admin.ViewModels.RoleSelectEditorViewModel
+@{
+    ViewBag.Title = "ManageUserRolesEdit";
+}
+
+<h2>Edit Roles for User with Ajax</h2>
+<div id="yyy">
+    @using (Ajax.BeginForm("ManageUserRolesEdit_Ajax", "Role",
+                            new AjaxOptions
+                            {
+                                HttpMethod = "GET",
+                                UpdateTargetId = "yyy",
+                                InsertionMode = InsertionMode.Replace
+                            }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        @Model.User.UserName
+
+        int i = 0;
+        foreach (var item in Model.s)
+        {
+
+            @Html.DisplayFor(modelItem => item.Role.Name)
+            @*@Html.CheckBoxFor(modelItem => item.Selected)*@
+
+            @*@Html.CheckBox("Blanks["+item.Role.Name+"]", item.Selected)*@
+            @Html.CheckBox("Blanks[" + i.ToString() + "]", item.Selected)
+
+            i++;
+            @Html.DisplayText("EXPRESSION" + i.ToString())
+        }
+        <input type="submit" value="Save" />
+    }
+</div>

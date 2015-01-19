@@ -1,0 +1,179 @@
+﻿@*@model PagedList.StaticPagedList<LNDL.ServiceReference1.Product>*@
+@model PagedList.StaticPagedList<LNDLWcfService.CodeFirstEntities.Product>
+
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Products";
+}
+<h2>Products from Product Controller</h2>
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Get, new { @class = "navbar-form", @role = "search" }))
+{
+    <div class="form-group  navbar-left">
+        <label class="label label-default">Find by name: </label>
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Search Product" })
+        <button type="submit" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+        @*<button type="button" id="glance_only" @*onclick="hideFunction(this);" class="glyphicon glyphicon-hand-left" title="hide details"></button>*@
+        <button type="button" id="show_detail" @*onclick="showFunction(this);"*@ class="glyphicon glyphicon-hand-down " title="show details"></button>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+        <label class="label label-default">Item Per Page: </label>
+        @Html.DropDownList("pageSize", new SelectList(
+                          new List<Object>{
+                            new { value = 3 , text = "3"  },
+                            new { value = 5 , text = "5"  },
+                            new { value = 10 , text = "10"  },
+                            new { value = 15 , text = "15" },
+                            new { value = 20 , text = "20"}
+                          },
+                          "value",
+                          "text"
+                    ), htmlAttributes: new { @class = "form-control" })
+        <button type="submit" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        </button>
+    </div>
+}
+<p>
+    <br />
+    <br />
+</p>
+@*Parameters: ViewBag.NameSortParm=@ViewBag.NameSortParm, ViewBag.CurrentFilter=@ViewBag.CurrentFilter and ViewBag.CurrentSort=@ViewBag.CurrentSort
+    ViewBag.PageSize=@ViewBag.PageSize*@
+<p>
+    @*@Html.ActionLink("New", "Create", null, new { @class = "btn btn-warning glyphicon glyphicon-plus-sign" })*@
+    <a href="@Url.Action("Create")" title="Create New">
+        <i class="glyphicon glyphicon-pencil"></i>
+        <span class="sr-only">New</span>
+    </a>
+</p>
+<table class="table">
+    <tr class="fix">
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Category.categoryName)
+        </th>
+        <th>
+            @Html.ActionLink("Name", "Index", new { page = ViewBag.CurrentPageNumber, sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().listPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Color)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="fix">
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.categoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>*@
+            <td>
+                @*<button type="button" class="show_detail1 glyphicon glyphicon-arrow-down" title="show details"></button>*@
+                <a href="#">
+                    <i class="show_detail1 glyphicon glyphicon-arrow-down" title="show or hide details"></i>
+                    @*<span class="sr-only">#</span>*@
+                </a>
+                <a href="@Url.Action("Edit", new {id = item.Id })">
+                    <i class="glyphicon glyphicon-edit" title="Edit"></i>
+                    @*<span class="sr-only">Edit</span>*@
+                </a>
+                <a href="@Url.Action("Details", new { id = item.Id })" title="Details">
+                    <i class="glyphicon glyphicon-list"></i>
+                    @*<span class="sr-only">Details</span>*@
+                </a>
+                <a href="@Url.Action("Delete", new { id = item.Id })" title="Delete">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    @*<span class="sr-only">Delete</span>*@
+                </a>
+            </td>
+        </tr>
+        <tr class="expandable" style="display:none">
+            <td colspan="1" align="right">
+                <p> Offices: </p>
+            </td>
+        </tr>
+        @*foreach (var x in item.Offices)
+        {
+            System.Text.StringBuilder s = new System.Text.StringBuilder();// string.Empty;
+            foreach (var y in x.People)
+            {
+                s = s.Append(y.FirstName).Append(" " + y.LastName);
+            }
+            //s +=  " is in: \n"+ "Type: " + x.type + " in Building: " + x.buildingName + " at Street: " + x.Address.Street +"\n";
+            s = s.Append(" is in: \n").Append("Type: " + x.type + " in Building: " + x.buildingName + " at Street: " + x.Address.Street + "\n");
+            <tr class="expandable" style="display:none">
+                <td colspan="1" align="right"></td>
+                <td>
+                    <p>
+                        @Html.Raw(s.ToString())
+                    </p>
+                </td>
+            </tr>
+        }*@
+    }
+</table>
+<br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //$("#show_detail").click(function (e) {
+            //    if (e.handled !== true) // This will prevent event triggering more then once
+            //    {
+            //        //alert("showFunction clicked..");
+            //        var $el = $(e.target);
+            //        if ($el.hasClass('glyphicon-hand-down')) {
+            //            $("tr[class*=expandable]").show();
+            //            $el.removeClass('glyphicon-hand-down').addClass('glyphicon-hand-left')
+            //        }
+            //        else /*($el.hasClass('glyphicon-hand-left'))*/ {
+            //            $("tr[class*=expandable]").hide();
+            //            $el.removeClass('glyphicon-hand-left').addClass('glyphicon-hand-down')
+            //        }
+            //        e.handled = true;
+            //    }
+            //});
+
+            //$('.show_detail1').click(function (e) {
+            //    if (e.handled !== true) // This will prevent event triggering more then once, workaournd ONLY for now
+            //    {
+            //        var $el = $(e.target);
+            //        if ($el.hasClass('glyphicon-arrow-down')) {
+            //            expandablerows = $(e.target).parent().closest("tr").nextUntil(".fix");
+            //            expandablerows.show();
+            //            $el.removeClass('glyphicon-arrow-down').addClass('glyphicon-arrow-left')
+            //        }
+            //        else /*($el.hasClass('glyphicon-hand-left'))*/ {
+            //            expandablerows = $(e.target).parent().closest("tr").nextUntil(".fix");
+            //            expandablerows.hide();
+            //            $el.removeClass('glyphicon-arrow-left').addClass('glyphicon-arrow-down')
+            //        }
+            //        e.handled = true;
+            //        //alert("event for show_detail1+" + $(e.target).parent().closest("tr").nextUntil(".fix"));
+            //        //alert("This: " + this.nodeName);
+            //        e.handled = true;
+            //    }
+            //});
+        });
+    </script>

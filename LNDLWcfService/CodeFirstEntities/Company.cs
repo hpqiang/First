@@ -9,7 +9,7 @@ namespace LNDLWcfService.CodeFirstEntities
 {
     public class Company
     {
-        public int companyId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name="Abbreviation")]
@@ -22,13 +22,13 @@ namespace LNDLWcfService.CodeFirstEntities
         public string Phone { get; set; }
         public string Email { get; set; }
         public string WebSite { get; set; }
-        public DateTime DateSince { get; set; }
+        public DateTime? DateSince { get; set; }
         public bool IsActive { get; set; }
 
         public int AddressId { get; set; }
         public Address Addresses { get; set; }
         //public ICollection<Address> Addresses { get; set; }
 
-        public ICollection<Person> Contacts { get; set; }
+        public List<Person> Contacts { get; set; }
     }
 }

@@ -1,0 +1,148 @@
+﻿@*@model LNDL.ServiceReference1.Company*@
+@model LNDLWcfService.CodeFirstEntities.Company
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.BriefName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BriefName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.companyType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companyType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebSite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateSince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Addresses.Number)
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.Addresses.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses.Street)
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.Addresses.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addresses.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addresses.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addresses.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addresses.Country)
+        </dd>
+        @foreach (var x in Model.Contacts)
+        {
+            string s = x.FirstName + " " + x.LastName;
+            <dt>
+                Contact: 
+            </dt>
+            <dd>
+            @Html.Raw(s)
+            </dd>    
+        }*@
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index", new { page = Session["currentPage"] })
+</p>

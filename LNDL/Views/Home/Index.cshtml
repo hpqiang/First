@@ -1,5 +1,7 @@
 ﻿@model LNDL.Models.Test
 
+@using System.Web.Helpers
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -7,3 +9,9 @@
 @Html.DisplayFor(Model => Model.name)
 
 <h3>Index page</h3>
+
+@*<img src="~/Views/Shared/ChartBasic.cshtml" />*@
+<img src="@Url.Action("MyChart")" alt="SimpleChart" />
+
+
+<h3>XYZ</h3>

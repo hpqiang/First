@@ -25,7 +25,7 @@ namespace LNDLWcfService.CodeFirstEntities
         public string photo { get; set; }
 
         public int companyId { get; set; }
-        public virtual Company Company { get; set; }
+        //public Company Company { get; set; } //MQ: Important---will cause recursive call and stop remoting if used???
 
     }
 }
